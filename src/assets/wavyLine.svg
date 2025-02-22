@@ -1,0 +1,14 @@
+<svg width="100%" height="10" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
+  <path d="M-20 5 
+           C-10 0, 0 10, 10 5
+           S30 0, 40 5
+           S50 10, 60 5
+           S70 0, 80 5
+           S90 10, 100 5
+           S110 0, 120 5
+           L120 10
+           L-20 10
+           Z"
+        fill="#f8f1f6"
+        stroke="none"/>
+</svg>
