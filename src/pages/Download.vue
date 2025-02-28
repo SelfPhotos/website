@@ -1,11 +1,16 @@
 <template>
-  <div class="d-flex justify-center" style="height: calc(100vh - 64px)">
+  <div
+    class="d-flex justify-center px-16"
+    style="height: calc(100vh - 64px); min-height: 500px"
+  >
     <div
       class="d-flex flex-column align-center justify-center pb-16"
       style="max-width: 1296px; width: 100%; height: 100%; margin: 0"
     >
       <div style="margin-bottom: 100px">
-        <div class="text-h2 font-weight-bold mb-10">下载Aicasa</div>
+        <div class="text-h2 font-weight-bold mb-10">
+          {{ $t("message.Download") }} Aicasa
+        </div>
         <!-- <div class="text-subtitle-1">
           同时支持iOS、Android、iPadOS、macOS、Windows、Linux版本
         </div> -->
@@ -13,7 +18,7 @@
       <!-- <div class="text-body-1">
         同时支持iOS、Android、iPadOS、macOS、Windows、Linux版本
       </div> -->
-      <div class="w-100 d-flex justify-space-between">
+      <div class="w-100 d-flex justify-space-between flex-wrap ga-2">
         <div
           class="d-flex flex-column align-center justify-center"
           style="
@@ -78,7 +83,9 @@
             </span>
           </div>
           <span style="font-size: 14px; font-weight: 500"> MacOS </span>
-          <span style="font-size: 12px">Apple silicon</span>
+          <span style="font-size: 12px">
+            {{ $t("message.download.AppleSilicon") }}
+          </span>
         </div>
         <div
           class="d-flex flex-column align-center justify-center"
@@ -100,7 +107,9 @@
             <img src="@/assets/logo/ios.png" width="60" height="60" />
           </div>
           <span style="font-size: 14px; font-weight: 500"> iOS & iPad </span>
-          <span style="font-size: 12px">Coming soon</span>
+          <span style="font-size: 12px">{{
+            $t("message.download.comingSoon")
+          }}</span>
         </div>
         <div
           class="d-flex flex-column align-center justify-center"
@@ -122,7 +131,9 @@
             <img src="@/assets/logo/android.png" width="60" height="60" />
           </div>
           <span style="font-size: 14px; font-weight: 500">Android </span>
-          <span style="font-size: 12px">Coming soon</span>
+          <span style="font-size: 12px">{{
+            $t("message.download.comingSoon")
+          }}</span>
         </div>
         <div
           class="d-flex flex-column align-center justify-center"
@@ -144,12 +155,17 @@
             <img src="@/assets/logo/linux.png" width="60" height="60" />
           </div>
           <span style="font-size: 14px; font-weight: 500">Linux </span>
-          <span style="font-size: 12px">Coming soon</span>
+          <span style="font-size: 12px">{{
+            $t("message.download.comingSoon")
+          }}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+</script>
 
 <style lang="scss">
 .os-box {

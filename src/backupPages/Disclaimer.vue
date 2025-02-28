@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center" style="padding-top: 40px">
+  <div class="d-flex justify-center px-16" style="padding-top: 40px">
     <div style="max-width: 1296px; width: 100%">
       <h1>Disclaimer</h1>
       <br />

@@ -1,0 +1,42 @@
+[
+  {
+    "value": "de-DE",
+    "title": "Deutsch"
+  },
+  {
+    "value": "en-US",
+    "title": "English"
+  },
+  {
+    "value": "es-ES",
+    "title": "Español"
+  },
+  {
+    "value": "fr-FR",
+    "title": "Français"
+  },
+  {
+    "value": "hi-IN",
+    "title": "हिंदी"
+  },
+  {
+    "value": "it-IT",
+    "title": "Italiano"
+  },
+  {
+    "value": "ja-JP",
+    "title": "日本語"
+  },
+  {
+    "value": "pt-PT",
+    "title": "Português"
+  },
+  {
+    "value": "ru-RU",
+    "title": "Русский"
+  },
+  {
+    "value": "zh-CN",
+    "title": "中文"
+  }
+]
