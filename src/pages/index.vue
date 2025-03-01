@@ -25,6 +25,7 @@
             <img
               src="@/assets/aicasa.png"
               style="height: 3.75rem; padding: 8px 0"
+              alt="Aicasa"
             />
           </div>
         </transition>
@@ -36,9 +37,6 @@
           >
             <div class="mb-4" v-html="$t('message.home.slogan1')" />
             <div style="opacity: 0.7" v-html="$t('message.home.slogan2')"></div>
-            <!-- <div class="mt-6">
-            <b>Your Memories, Organized with Ease</b>
-          </div> -->
           </div>
         </transition>
         <template
@@ -137,7 +135,7 @@
         </div>
       </v-col>
       <v-col cols="12">
-        <transition name="fade">
+        <transition name="fade" v-if="!appStore.isInChina">
           <div
             v-if="homeIntersecting"
             class="w-100 h-100 d-flex d-flex justify-center"
@@ -168,10 +166,30 @@
             </v-menu>
           </div>
         </transition>
+        <transition name="fade" v-else>
+          <div
+            v-if="homeIntersecting"
+            class="w-100 h-100 d-flex d-flex flex-column align-center justify-center"
+            style="gap: 0 10px"
+          >
+            <img src="@/assets/qrcode.png" width="200" height="200" />
+            <v-btn
+              class="text-none"
+              rounded="lg"
+              variant="text"
+              size="x-large"
+              readonly
+            >
+              <img src="@/assets/feedback_logo/wechat.svg" class="mr-2" />
+              {{ $t("message.home.join") }}
+              {{ $t("message.feedback.Wechat") }}
+            </v-btn>
+          </div>
+        </transition>
       </v-col>
     </v-row>
   </div>
-  <div
+  <nav
     v-if="activeSection !== 'faq'"
     class="d-flex justify-center"
     style="
@@ -248,19 +266,9 @@
       >
         {{ $t("message.home.section.unlimited.title") }}
       </div>
-      <!-- <div
-        class="d-flex align-center justify-center cursor-pointer"
-        style="height: 48px; color: #5f6368; transition: all 0.3s ease"
-        :style="{
-          opacity: activeSection === 'faq' || activeSection === 'tab' ? 1 : 0.5,
-        }"
-        @click="scrollTo('faq')"
-      >
-        FAQ
-      </div> -->
     </div>
-  </div>
-  <div
+  </nav>
+  <section
     ref="timelineSection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -309,8 +317,8 @@
         />
       </v-col>
     </v-row>
-  </div>
-  <div
+  </section>
+  <section
     ref="foldersSection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -359,8 +367,8 @@
         </transition>
       </v-col>
     </v-row>
-  </div>
-  <div
+  </section>
+  <section
     ref="watchModeSection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -409,8 +417,8 @@
         />
       </v-col>
     </v-row>
-  </div>
-  <div
+  </section>
+  <section
     ref="privacySection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -459,8 +467,8 @@
         </transition>
       </v-col>
     </v-row>
-  </div>
-  <div
+  </section>
+  <section
     ref="unlimitedSection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -509,8 +517,8 @@
         />
       </v-col>
     </v-row>
-  </div>
-  <div
+  </section>
+  <section
     ref="faqSection"
     class="d-flex justify-center pb-6 px-16"
     style="margin-top: 230px; margin-bottom: 100px"
@@ -545,7 +553,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>

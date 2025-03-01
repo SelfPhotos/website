@@ -1,5 +1,5 @@
 <template>
-  <div
+  <footer
     class="d-flex justify-center px-16"
     style="
       padding: 100px 0;
@@ -129,26 +129,10 @@
           >
             {{ $t("message.about.privacy.title") }}
           </v-btn>
-          <!-- <v-btn
-            variant="text"
-            rounded="lg"
-            class="text-none"
-            @click="router.push('/refund')"
-          >
-            Refund policy
-          </v-btn>
-          <v-btn
-            variant="text"
-            rounded="lg"
-            class="text-none"
-            @click="router.push('/disclaimer')"
-          >
-            Disclaimer
-          </v-btn> -->
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script lang="ts" setup>

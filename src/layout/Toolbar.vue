@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     class="d-flex align-center justify-center px-16"
     style="
       height: 64px;
@@ -61,7 +61,6 @@
         >
           {{ $t("message.Download") }}
         </v-btn>
-        <!-- <v-btn class="text-none" variant="text" rounded="lg">Local</v-btn> -->
         <v-select
           v-model="langugeValue"
           :items="langugeOption"
@@ -80,7 +79,7 @@
         </v-select>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>

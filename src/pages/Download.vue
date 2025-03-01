@@ -11,13 +11,7 @@
         <div class="text-h2 font-weight-bold mb-10">
           {{ $t("message.Download") }} Aicasa
         </div>
-        <!-- <div class="text-subtitle-1">
-          同时支持iOS、Android、iPadOS、macOS、Windows、Linux版本
-        </div> -->
       </div>
-      <!-- <div class="text-body-1">
-        同时支持iOS、Android、iPadOS、macOS、Windows、Linux版本
-      </div> -->
       <div class="w-100 d-flex justify-space-between flex-wrap ga-2">
         <div
           class="d-flex flex-column align-center justify-center"
