@@ -21,12 +21,16 @@
             class="w-100 text-h2 font-weight-bold d-flex align-center"
             style="color: #585858"
           >
-            {{ $t("message.home.WhatIs") }}&nbsp;
-            <img
-              src="@/assets/aicasa.png"
-              style="height: 3.75rem; padding: 8px 0"
-              alt="Aicasa"
-            />
+            {{ $t("message.home.WhatIs") }}
+            <div v-if="appStore.languge === 'zh-CN'">爱看相册</div>
+            <template v-else>
+              <img
+                class="ml-4"
+                src="@/assets/aicasa.png"
+                style="height: 3.75rem; padding: 8px 0"
+                alt="Aicasa"
+              />
+            </template>
           </div>
         </transition>
         <transition name="fade">
@@ -105,7 +109,7 @@
             border-radius: 12px;
           "
         >
-          <iframe
+          <!-- <iframe
             v-if="appStore.isInChina"
             ref="iframeRef"
             width="100%"
@@ -131,7 +135,7 @@
             :style="{
               height: `${iframeHeight}px`,
             }"
-          ></iframe>
+          ></iframe> -->
         </div>
       </v-col>
       <v-col cols="12">
@@ -182,6 +186,7 @@
             >
               <img src="@/assets/feedback_logo/wechat.svg" class="mr-2" />
               {{ $t("message.home.join") }}
+              <span v-if="appStore.languge === 'zh-CN'">爱看相册</span>
               {{ $t("message.feedback.Wechat") }}
             </v-btn>
           </div>

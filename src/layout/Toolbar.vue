@@ -20,6 +20,13 @@
           src="@/assets/aicasa.png"
           @click="router.push('/')"
         />
+        <div
+          v-if="appStore.languge === 'zh-CN'"
+          class="ml-4 pt-2 font-weight-bold"
+          style="font-size: 18px; line-height: 24px"
+        >
+          爱看相册
+        </div>
       </div>
       <div class="d-flex align-center ga-1">
         <v-menu open-on-hover>
