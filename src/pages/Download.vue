@@ -39,6 +39,7 @@
             <span
               class="material-symbols-outlined os-download"
               style="font-size: 40px"
+              @click="onWindowsDownloadClick"
             >
               download
             </span>
@@ -72,6 +73,7 @@
             <span
               class="material-symbols-outlined os-download"
               style="font-size: 40px"
+              @click="onMacOSDownloadClick"
             >
               download
             </span>
@@ -159,6 +161,38 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  GITHUB_DOWNLOAD_URL,
+  MACOS_APP_NAME,
+  TENCENT_DOWNLOAD_URL,
+  VERSION,
+  WINDOWS_APP_NAME,
+} from "@/config/url";
+import { useAppStore } from "@/store/appStore";
+
+const appStore = useAppStore();
+const onWindowsDownloadClick = () => {
+  let url = "";
+  if (appStore.isInChina) {
+    url += TENCENT_DOWNLOAD_URL;
+  } else {
+    url += GITHUB_DOWNLOAD_URL;
+  }
+  url += `/${VERSION}`;
+  url += `/${WINDOWS_APP_NAME}`;
+  window.open(url, "_blank");
+};
+const onMacOSDownloadClick = () => {
+  let url = "";
+  if (appStore.isInChina) {
+    url += TENCENT_DOWNLOAD_URL;
+  } else {
+    url += GITHUB_DOWNLOAD_URL;
+  }
+  url += `/${VERSION}`;
+  url += `/${MACOS_APP_NAME}`;
+  window.open(url, "_blank");
+};
 </script>
 
 <style lang="scss">

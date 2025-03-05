@@ -54,7 +54,7 @@
               style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)"
               size="x-large"
               color="primary"
-              @click="isShowMirrorBtn = true"
+              @click="onDownloadClick"
             >
               {{ $t("message.Download") }} {{ appStore.osType }}
               {{ $t("message.home.installer") }}
@@ -67,6 +67,7 @@
               class="text-none text-decoration-underline ml-1 px-0 mt-2"
               rounded="lg"
               variant="text"
+              @click="onMirrorDownloadClick"
             >
               {{ $t("message.home.mirror") }}
             </v-btn>
@@ -565,6 +566,13 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { useAppStore } from "@/store/appStore";
+import {
+  GITHUB_DOWNLOAD_URL,
+  MACOS_APP_NAME,
+  TENCENT_DOWNLOAD_URL,
+  VERSION,
+  WINDOWS_APP_NAME,
+} from "@/config/url";
 const router = useRouter();
 const appStore = useAppStore();
 
@@ -701,6 +709,41 @@ const onResize = () => {
     const width = iframeRef.value.offsetWidth;
     iframeHeight.value = (width / 675) * 380;
   }
+};
+
+const onDownloadClick = () => {
+  if (appStore.osType !== "Windows" && appStore.osType !== "MacOS") {
+    return;
+  }
+  isShowMirrorBtn.value = true;
+  let url = "";
+  if (appStore.isInChina) {
+    url += TENCENT_DOWNLOAD_URL;
+  } else {
+    url += GITHUB_DOWNLOAD_URL;
+  }
+  url += `/${VERSION}`;
+  if (appStore.osType === "Windows") {
+    url += `/${WINDOWS_APP_NAME}`;
+  } else if (appStore.osType === "MacOS") {
+    url += `/${MACOS_APP_NAME}`;
+  }
+  window.open(url, "_blank");
+};
+const onMirrorDownloadClick = () => {
+  let url = "";
+  if (appStore.isInChina) {
+    url += GITHUB_DOWNLOAD_URL;
+  } else {
+    url += TENCENT_DOWNLOAD_URL;
+  }
+  url += `/${VERSION}`;
+  if (appStore.osType === "Windows") {
+    url += `/${WINDOWS_APP_NAME}`;
+  } else if (appStore.osType === "MacOS") {
+    url += `/${MACOS_APP_NAME}`;
+  }
+  window.open(url, "_blank");
 };
 </script>
 

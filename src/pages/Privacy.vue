@@ -26,8 +26,9 @@
 </template>
 
 <script setup lang="ts">
+import { DISCORD_URL } from "@/config/url";
 import { ref } from "vue";
 
 const arrLength = ref(7);
-const discordUrl = ref(import.meta.env.VITE_DISCORD_URL);
+const discordUrl = ref(DISCORD_URL);
 </script>

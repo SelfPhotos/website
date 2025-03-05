@@ -95,6 +95,7 @@ import { useI18n } from "vue-i18n";
 import localJson from "@/locales/locale.json";
 import { onMounted, reactive, ref, watch } from "vue";
 import { useAppStore } from "@/store/appStore";
+import { DISCORD_URL, GITHUB_URL } from "@/config/url";
 
 const { locale } = useI18n();
 const router = useRouter();
@@ -116,9 +117,9 @@ watch(
 );
 
 function goDiscord() {
-  window.open(import.meta.env.VITE_DISCORD_URL, "_blank");
+  window.open(DISCORD_URL, "_blank");
 }
 function goGithub() {
-  window.open(import.meta.env.VITE_GITHUB_URL, "_blank");
+  window.open(GITHUB_URL, "_blank");
 }
 </script>

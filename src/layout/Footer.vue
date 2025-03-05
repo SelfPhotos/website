@@ -136,26 +136,34 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  BILIBILI_URL,
+  DISCORD_URL,
+  GITHUB_URL,
+  REDDIT_URL,
+  X_URL,
+  YOUTUBE_URL,
+} from "@/config/url";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 
 function goDiscord() {
-  window.open(import.meta.env.VITE_DISCORD_URL, "_blank");
+  window.open(DISCORD_URL, "_blank");
 }
 function goYoutube() {
-  window.open(import.meta.env.VITE_YOUTUBE_URL, "_blank");
+  window.open(YOUTUBE_URL, "_blank");
 }
 function goX() {
-  window.open(import.meta.env.VITE_X_URL, "_blank");
+  window.open(X_URL, "_blank");
 }
 function goGithub() {
-  window.open(import.meta.env.VITE_GITHUB_URL, "_blank");
+  window.open(GITHUB_URL, "_blank");
 }
 function goBilibili() {
-  window.open(import.meta.env.VITE_BILIBILI_URL, "_blank");
+  window.open(BILIBILI_URL, "_blank");
 }
 function goReddit() {
-  window.open(import.meta.env.VITE_REDDIT_URL, "_blank");
+  window.open(REDDIT_URL, "_blank");
 }
 </script>
