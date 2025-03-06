@@ -25,7 +25,7 @@ export const useAppStore = defineStore("app", {
         this.changeOsType("iOS");
       }
 
-      if (navigator.language !== "zh-CN") {
+      if (navigator.language === "zh-CN") {
         this.changeIsInChina(true);
       } else {
         this.changeIsInChina(false);

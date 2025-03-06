@@ -140,7 +140,7 @@
         </div>
       </v-col>
       <v-col cols="12">
-        <transition name="fade" v-if="appStore.isInChina">
+        <transition name="fade" v-if="!appStore.isInChina">
           <div
             v-if="homeIntersecting"
             class="w-100 h-100 d-flex d-flex justify-center"
