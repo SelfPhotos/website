@@ -39,7 +39,7 @@ router.beforeEach((to) => {
   switch (to.path) {
     case "/":
       if (metaDescription) {
-        if (appStore.languge === "zh-CN") {
+        if (appStore.language === "zh-CN") {
           document.title = "Aicasa - 一站式个人相册管理专家";
           metaDescription.setAttribute(
             "content",
@@ -57,7 +57,7 @@ router.beforeEach((to) => {
       break;
     case "/download":
       if (metaDescription) {
-        if (appStore.languge === "zh-CN") {
+        if (appStore.language === "zh-CN") {
           document.title = "Aicasa - 下载";
           metaDescription.setAttribute(
             "content",

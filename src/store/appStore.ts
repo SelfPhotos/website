@@ -4,7 +4,7 @@ export const useAppStore = defineStore("app", {
   state: () => ({
     isInChina: false,
     osType: "Windows" as "Windows" | "MacOS" | "Linux" | "Android" | "iOS",
-    languge: "en-US" as string,
+    language: "en-US" as string,
   }),
   getters: {},
   actions: {
@@ -25,14 +25,14 @@ export const useAppStore = defineStore("app", {
         this.changeOsType("iOS");
       }
 
-      if (navigator.language === "zh-CN") {
+      if (navigator.language !== "zh-CN") {
         this.changeIsInChina(true);
       } else {
         this.changeIsInChina(false);
       }
 
-      let defaultLanguge = navigator.language;
-      switch (defaultLanguge) {
+      let defaultLanguage = navigator.language;
+      switch (defaultLanguage) {
         case "de-DE":
         case "en-US":
         case "es-ES":
@@ -45,9 +45,9 @@ export const useAppStore = defineStore("app", {
         case "zh-CN":
           break;
         default:
-          defaultLanguge = "en-US";
+          defaultLanguage = "en-US";
       }
-      this.changeLanguge(defaultLanguge);
+      this.changeLanguage(defaultLanguage);
     },
     changeIsInChina(val: boolean) {
       this.isInChina = val;
@@ -55,8 +55,8 @@ export const useAppStore = defineStore("app", {
     changeOsType(val: "Windows" | "MacOS" | "Linux" | "Android" | "iOS") {
       this.osType = val;
     },
-    changeLanguge(newLanguge: string) {
-      this.languge = newLanguge;
+    changeLanguage(newLanguage: string) {
+      this.language = newLanguage;
     },
   },
 });

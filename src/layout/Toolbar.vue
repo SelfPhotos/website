@@ -21,7 +21,7 @@
           @click="router.push('/')"
         />
         <div
-          v-if="appStore.languge === 'zh-CN'"
+          v-if="appStore.language === 'zh-CN'"
           class="ml-4 pt-2 font-weight-bold"
           style="font-size: 18px; line-height: 24px"
         >
@@ -69,8 +69,8 @@
           {{ $t("message.Download") }}
         </v-btn>
         <v-select
-          v-model="langugeValue"
-          :items="langugeOption"
+          v-model="languageValue"
+          :items="languageOption"
           variant="outlined"
           hide-details
           width="150"
@@ -101,18 +101,18 @@ const { locale } = useI18n();
 const router = useRouter();
 const appStore = useAppStore();
 
-const langugeValue = ref<string>("en-US");
-const langugeOption = reactive(localJson);
+const languageValue = ref<string>("en-US");
+const languageOption = reactive(localJson);
 
 onMounted(() => {
-  langugeValue.value = appStore.languge;
+  languageValue.value = appStore.language;
 });
 
 watch(
-  () => langugeValue.value,
+  () => languageValue.value,
   (val) => {
     locale.value = val;
-    appStore.changeLanguge(val);
+    appStore.changeLanguage(val);
   }
 );
 

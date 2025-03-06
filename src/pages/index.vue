@@ -22,7 +22,7 @@
             style="color: #585858"
           >
             {{ $t("message.home.WhatIs") }}
-            <div v-if="appStore.languge === 'zh-CN'">爱看相册</div>
+            <div v-if="appStore.language === 'zh-CN'">爱看相册</div>
             <template v-else>
               <img
                 class="ml-4"
@@ -110,11 +110,11 @@
             border-radius: 12px;
           "
         >
-          <!-- <iframe
+          <iframe
             v-if="appStore.isInChina"
             ref="iframeRef"
             width="100%"
-            src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=114052672001076&bvid=BV1frAmecEWV&cid=28538372663&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
+            src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=114110603723702&bvid=BV1C39oYgE4c&cid=28709751528&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
             scrolling="no"
             border="0"
             frameborder="no"
@@ -128,7 +128,7 @@
             v-else
             ref="iframeRef"
             width="100%"
-            src="https://www.youtube-nocookie.com/embed/dYhuX00XZNw?autoplay=1&mute=1&loop=1&playlist=dYhuX00XZNw"
+            src="https://www.youtube.com/embed/NQFDZB1TzEE?autoplay=1&mute=1&loop=1&playlist=NQFDZB1TzEE"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -136,7 +136,7 @@
             :style="{
               height: `${iframeHeight}px`,
             }"
-          ></iframe> -->
+          ></iframe>
         </div>
       </v-col>
       <v-col cols="12">
@@ -187,7 +187,7 @@
             >
               <img src="@/assets/feedback_logo/wechat.svg" class="mr-2" />
               {{ $t("message.home.join") }}
-              <span v-if="appStore.languge === 'zh-CN'">爱看相册</span>
+              <span v-if="appStore.language === 'zh-CN'">爱看相册</span>
               {{ $t("message.feedback.Wechat") }}
             </v-btn>
           </div>
@@ -203,7 +203,7 @@
       margin: 60px 0;
       position: sticky;
       top: 24px;
-      z-index: 9999;
+      z-index: 10;
       font-weight: 500;
       font-size: 16px;
     "
@@ -567,11 +567,10 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { useAppStore } from "@/store/appStore";
 import {
-  GITHUB_DOWNLOAD_URL,
-  MACOS_APP_NAME,
-  TENCENT_DOWNLOAD_URL,
-  VERSION,
-  WINDOWS_APP_NAME,
+  getGithubDownloadMacOSUrl,
+  getGithubDownloadWindowsUrl,
+  getTencentDownloadMacOSUrl,
+  getTencentDownloadWindowsUrl,
 } from "@/config/url";
 const router = useRouter();
 const appStore = useAppStore();
@@ -707,7 +706,7 @@ const scrollTo = (target: string) => {
 const onResize = () => {
   if (iframeRef.value) {
     const width = iframeRef.value.offsetWidth;
-    iframeHeight.value = (width / 675) * 380;
+    iframeHeight.value = (width / 1022) * 575;
   }
 };
 
@@ -716,32 +715,29 @@ const onDownloadClick = () => {
     return;
   }
   isShowMirrorBtn.value = true;
+
   let url = "";
-  if (appStore.isInChina) {
-    url += TENCENT_DOWNLOAD_URL;
-  } else {
-    url += GITHUB_DOWNLOAD_URL;
-  }
-  url += `/${VERSION}`;
-  if (appStore.osType === "Windows") {
-    url += `/${WINDOWS_APP_NAME}`;
-  } else if (appStore.osType === "MacOS") {
-    url += `/${MACOS_APP_NAME}`;
+  if (appStore.language === "zh-CN" && appStore.osType === "Windows") {
+    url = getTencentDownloadWindowsUrl();
+  } else if (appStore.language === "zh-CN" && appStore.osType === "MacOS") {
+    url = getTencentDownloadMacOSUrl();
+  } else if (appStore.language !== "zh-CN" && appStore.osType === "Windows") {
+    url = getGithubDownloadWindowsUrl();
+  } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
+    url = getGithubDownloadMacOSUrl();
   }
   window.open(url, "_blank");
 };
 const onMirrorDownloadClick = () => {
   let url = "";
-  if (appStore.isInChina) {
-    url += GITHUB_DOWNLOAD_URL;
-  } else {
-    url += TENCENT_DOWNLOAD_URL;
-  }
-  url += `/${VERSION}`;
-  if (appStore.osType === "Windows") {
-    url += `/${WINDOWS_APP_NAME}`;
-  } else if (appStore.osType === "MacOS") {
-    url += `/${MACOS_APP_NAME}`;
+  if (appStore.language === "zh-CN" && appStore.osType === "Windows") {
+    url = getGithubDownloadWindowsUrl();
+  } else if (appStore.language === "zh-CN" && appStore.osType === "MacOS") {
+    url = getGithubDownloadMacOSUrl();
+  } else if (appStore.language !== "zh-CN" && appStore.osType === "Windows") {
+    url = getTencentDownloadWindowsUrl();
+  } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
+    url = getTencentDownloadMacOSUrl();
   }
   window.open(url, "_blank");
 };

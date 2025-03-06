@@ -162,35 +162,30 @@
 
 <script lang="ts" setup>
 import {
-  GITHUB_DOWNLOAD_URL,
-  MACOS_APP_NAME,
-  TENCENT_DOWNLOAD_URL,
-  VERSION,
-  WINDOWS_APP_NAME,
+  getGithubDownloadMacOSUrl,
+  getGithubDownloadWindowsUrl,
+  getTencentDownloadMacOSUrl,
+  getTencentDownloadWindowsUrl,
 } from "@/config/url";
 import { useAppStore } from "@/store/appStore";
 
 const appStore = useAppStore();
 const onWindowsDownloadClick = () => {
   let url = "";
-  if (appStore.isInChina) {
-    url += TENCENT_DOWNLOAD_URL;
+  if (appStore.language === "zh-CN") {
+    url = getTencentDownloadWindowsUrl();
   } else {
-    url += GITHUB_DOWNLOAD_URL;
+    url = getGithubDownloadWindowsUrl();
   }
-  url += `/${VERSION}`;
-  url += `/${WINDOWS_APP_NAME}`;
   window.open(url, "_blank");
 };
 const onMacOSDownloadClick = () => {
   let url = "";
-  if (appStore.isInChina) {
-    url += TENCENT_DOWNLOAD_URL;
+  if (appStore.language === "zh-CN") {
+    url = getTencentDownloadMacOSUrl();
   } else {
-    url += GITHUB_DOWNLOAD_URL;
+    url = getGithubDownloadMacOSUrl();
   }
-  url += `/${VERSION}`;
-  url += `/${MACOS_APP_NAME}`;
   window.open(url, "_blank");
 };
 </script>
