@@ -5,7 +5,7 @@ export const GITHUB_URL = "https://github.com/aicasa-ai/Aicasa";
 export const BILIBILI_URL = "https://space.bilibili.com/30280506";
 export const REDDIT_URL = "https://www.reddit.com/r/Aicasa";
 
-export const VERSION = "0.2.0";
+export const VERSION = "0.2.1";
 export const getGithubDownloadWindowsUrl = () => {
   return `https://github.com/aicasa-ai/Aicasa/releases/download/${VERSION}/Aicasa_${VERSION}_x64.msi`;
 };
