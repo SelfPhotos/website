@@ -9,7 +9,7 @@
     >
       <div style="margin-bottom: 100px">
         <div class="text-h2 font-weight-bold mb-10">
-          {{ $t("message.Download") }} Aicasa
+          {{ $t("message.Download") }} Self Photos
         </div>
       </div>
       <div class="w-100 d-flex justify-space-between flex-wrap ga-2">

@@ -17,7 +17,7 @@
           class="cursor-pointer"
           width="100"
           height="24.65"
-          src="@/assets/aicasa.png"
+          src="@/assets/logo.png"
           @click="router.push('/')"
         />
         <div

@@ -26,9 +26,9 @@
             <template v-else>
               <img
                 class="ml-4"
-                src="@/assets/aicasa.png"
+                src="@/assets/logo.png"
                 style="height: 3.75rem; padding: 8px 0"
-                alt="Aicasa"
+                alt="Logo"
               />
             </template>
           </div>

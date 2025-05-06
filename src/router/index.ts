@@ -40,14 +40,14 @@ router.beforeEach((to) => {
     case "/":
       if (metaDescription) {
         if (appStore.language === "zh-CN") {
-          document.title = "Aicasa - 一站式个人相册管理专家";
+          document.title = "Self Photos - 一站式个人相册管理专家";
           metaDescription.setAttribute(
             "content",
             "备份手机相册，扫描电脑硬盘和网盘照片……让你的回忆井井有条。"
           );
         } else {
           document.title =
-            "Aicasa - Privacy-Focused Photo Organizer for Desktop";
+            "Self Photos - Privacy-Focused Photo Organizer for Desktop";
           metaDescription.setAttribute(
             "content",
             "Like Picasa(predecessor to Google Photos), Keep Everything Local on your Computer."
@@ -58,13 +58,13 @@ router.beforeEach((to) => {
     case "/download":
       if (metaDescription) {
         if (appStore.language === "zh-CN") {
-          document.title = "Aicasa - 下载";
+          document.title = "Self Photos - 下载";
           metaDescription.setAttribute(
             "content",
             "免费下载使用Windows或者MacOS应用程序。"
           );
         } else {
-          document.title = "Aicasa - Download";
+          document.title = "Self Photos - Download";
           metaDescription.setAttribute(
             "content",
             "Download the Windows or MacOS application for free."
@@ -73,7 +73,7 @@ router.beforeEach((to) => {
       }
       break;
     default:
-      document.title = "Aicasa";
+      document.title = "Self Photos";
       if (metaDescription) {
         metaDescription.setAttribute("content", "");
       }

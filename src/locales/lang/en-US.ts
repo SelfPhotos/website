@@ -14,17 +14,17 @@ export default {
       terms: {
         title: "Terms of service",
         subtitle:
-          'Welcome to Aicasa! Please read these Terms of Service ("Terms") carefully before using the Aicasa app ("the App"), which is designed to help users manage and organize photos and videos. By downloading, installing, or using the App, you agree to comply with and be bound by these Terms',
+          'Welcome to Self Photos! Please read these Terms of Service ("Terms") carefully before using the Self Photos app ("the App"), which is designed to help users manage and organize photos and videos. By downloading, installing, or using the App, you agree to comply with and be bound by these Terms',
         arr: {
           1: {
             title: "Acceptance of Terms",
             content:
-              "By accessing or using Aicasa, you agree to these Terms. If you do not agree with any part of these Terms, you must not use the App.",
+              "By accessing or using Self Photos, you agree to these Terms. If you do not agree with any part of these Terms, you must not use the App.",
           },
           2: {
             title: "License",
             content:
-              "Aicasa grants you a non-exclusive, non-transferable, and revocable license to use the App for personal, non-commercial purposes, subject to these Terms. You may not reverse engineer, decompile, or otherwise attempt to extract the source code of the App unless permitted by applicable law.",
+              "Self Photos grants you a non-exclusive, non-transferable, and revocable license to use the App for personal, non-commercial purposes, subject to these Terms. You may not reverse engineer, decompile, or otherwise attempt to extract the source code of the App unless permitted by applicable law.",
           },
           3: {
             title: "Use of the App",
@@ -42,7 +42,7 @@ export default {
           5: {
             title: "Privacy and Data Protection",
             content:
-              "Aicasa is designed to operate entirely locally on your device. It does not collect, share, or store any personal data or files. For further details on how your data is handled, please refer to our Privacy Policy below.",
+              "Self photos is designed to operate entirely locally on your device. It does not collect, share, or store any personal data or files. For further details on how your data is handled, please refer to our Privacy Policy below.",
           },
           6: {
             title: "Termination",
@@ -69,12 +69,12 @@ export default {
       privacy: {
         title: "Privacy Policy",
         subtitle:
-          'At Aicasa, we value your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the Aicasa app ("the App").',
+          'At Self Photos, we value your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the Self Photos app ("the App").',
         arr: {
           1: {
             title: "Information Collection",
             content:
-              "Aicasa does not collect any personal information or data from users. The App operates entirely locally on your device and does not send data to external servers or the cloud.",
+              "Self Photos does not collect any personal information or data from users. The App operates entirely locally on your device and does not send data to external servers or the cloud.",
           },
           2: {
             title: "Local Data Processing",
@@ -84,7 +84,7 @@ export default {
           3: {
             title: "No Data Sharing or Storage",
             content:
-              "Aicasa does not share, store, or transmit any data to third parties. Your privacy is important, and your files and data remain solely on your local device.",
+              "Self Photos does not share, store, or transmit any data to third parties. Your privacy is important, and your files and data remain solely on your local device.",
           },
           4: {
             title: "Security",
@@ -141,19 +141,19 @@ export default {
           title: "Privacy",
           subtitle: "100% Local & Offline – Your Photos, Your Control",
           content:
-            "Aicasa operates entirely on your computer, ensuring your photos never leave your device. No cloud uploads, no internet required – just complete privacy and peace of mind.",
+            "Self Photos operates entirely on your computer, ensuring your photos never leave your device. No cloud uploads, no internet required – just complete privacy and peace of mind.",
         },
         unlimited: {
           title: "Unlimited",
           subtitle:
             "Free & Unlimited Storage – Only Limited by Your Hard Drive",
           content:
-            "Say goodbye to storage limits. Aicasa uses your local hard drive, so you can store as many photos as your disk space allows. No subscriptions, no hidden fees.",
+            "Say goodbye to storage limits. Self Photos uses your local hard drive, so you can store as many photos as your disk space allows. No subscriptions, no hidden fees.",
         },
       },
       faq: {
         1: {
-          q: 'Is "Aicasa" an online service or a local software? Do I need Internet connection to use it?',
+          q: 'Is "Self Photos" an online service or a local software? Do I need Internet connection to use it?',
           a: "This is a desktop software, not an online service. You can use it completely offline without an Internet connection.",
         },
         2: {
@@ -161,7 +161,7 @@ export default {
           a: "Currently, it supports Windows and macOS, with plans to support major Linux distributions in the future. The installation process is very straightforward, similar to installing any regular Windows/macOS software.",
         },
         3: {
-          q: 'Will "Aicasa" modify or delete the original files on my computer?',
+          q: 'Will "Self Photos" modify or delete the original files on my computer?',
           a: 'No. The software only scans and reads your photos and videos. If you manually choose "Move to Recycle Bin" within the software duration organizing your media library, it will perform that action after your confirmation dialog approval. You can still recover the files from system Recycle Bin.',
         },
         4: {
@@ -169,7 +169,7 @@ export default {
           a: "Never! All data is stored locally on your computer. The software can run entirely offline, ensuring your privacy and security.",
         },
         5: {
-          q: 'Which photo and video formats does "Aicasa" support? Does it support RAW formats?',
+          q: 'Which photo and video formats does "Self Photos" support? Does it support RAW formats?',
           a: "The software supports common image formats (e.g., JPG, JPEG, HEIC, PNG, WEBP, GIF) and video formats (e.g., GIF, MP4, MOV, 3GP, MKV, AVI, WMV, MPG). RAW format support is not available yet, but it will be added in a near future release.",
         },
         6: {
@@ -193,7 +193,7 @@ export default {
           a: "All core features in the current version (e.g., photo scanning, album management, browsing) are completely free. Upcoming features, such as mobile auto-backup and mobile access to desktop photos, will also be free.",
         },
         9: {
-          q: 'I like "Aicasa" so much. How can I contribute?',
+          q: 'I like "Self Photos" so much. How can I contribute?',
           a: `You can participate in the following ways:
           <br /><br />
           1. Join our Discord server to report bugs, or request features. We value your feedback and will actively consider it.
