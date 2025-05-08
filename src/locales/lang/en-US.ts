@@ -8,6 +8,7 @@ export default {
       X: "X",
       Bilibili: "Bilibili",
       Reddit: "Reddit",
+      Rednote: "Rednote",
     },
     Download: "Download",
     about: {
@@ -111,7 +112,7 @@ export default {
     },
     home: {
       WhatIs: "What is",
-      slogan1: "Privacy-Focused <b>Photo Organizer</b> for <b>Desktop</b>",
+      slogan1: "Self-Hosted Photo Management Software",
       slogan2:
         "Like Google Photos, <br />but Keep Everything Local on your Computer",
       installer: "installer",
@@ -177,8 +178,6 @@ export default {
           a: `You can freely select folders to scan, and there are three scanning modes available:
           <br /><br />
           Scan: Scans the folder once, and any future updates to the folder will not be indexed.
-          <br /><br />
-          Watch: Automatically monitors the folder (including subfolders) for any changes, such as new or deleted files, and updates the index accordingly.
           <br /><br />
           Excluded: Files in this folder will not be indexed.
           <br /><br />

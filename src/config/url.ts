@@ -6,16 +6,16 @@ export const GITHUB_URL = "https://github.com/SelfPhotos/SelfPhotos";
 export const BILIBILI_URL = "https://space.bilibili.com/30280506";
 // export const REDDIT_URL = "https://www.reddit.com/r/Aicasa";
 
-export const VERSION = "0.2.2";
+export const VERSION = "0.3.0";
 export const getGithubDownloadWindowsUrl = () => {
-  return `https://github.com/aicasa-ai/Aicasa/releases/download/${VERSION}/Aicasa_${VERSION}_x64.msi`;
+  return `https://github.com/SelfPhotos/SelfPhotos/releases/download/${VERSION}/SelfPhotos_${VERSION}_x64.msi`;
 };
 export const getGithubDownloadMacOSUrl = () => {
-  return `https://github.com/aicasa-ai/Aicasa/releases/download/${VERSION}/Aicasa_${VERSION}_aarch64.dmg`;
+  return `https://github.com/SelfPhotos/SelfPhotos/releases/download/${VERSION}/SelfPhotos_${VERSION}_aarch64.dmg`;
 };
 export const getTencentDownloadWindowsUrl = () => {
-  return `https://aicasa-1253926100.cos.ap-shanghai.myqcloud.com/aicasa/releases/${VERSION}/Aicasa_${VERSION}_x64.msi`;
+  return `https://selfphotos-1253926100.cos.ap-guangzhou.myqcloud.com/selfphotos/releases/${VERSION}/SelfPhotos_${VERSION}_x64.msi`;
 };
 export const getTencentDownloadMacOSUrl = () => {
-  return `https://aicasa-1253926100.cos.ap-shanghai.myqcloud.com/aicasa/releases/${VERSION}/Aicasa_${VERSION}_aarch64.dmg`;
+  return `https://selfphotos-1253926100.cos.ap-guangzhou.myqcloud.com/selfphotos/releases/${VERSION}/SelfPhotos_${VERSION}_aarch64.dmg`;
 };

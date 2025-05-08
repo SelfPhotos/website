@@ -19,7 +19,7 @@
           <div
             v-if="homeIntersecting"
             class="w-100 text-h2 font-weight-bold d-flex align-center"
-            style="color: #585858"
+            style="color: #585858; white-space: nowrap; z-index: 9"
           >
             {{ $t("message.home.WhatIs") }}
             {{ appStore.language === "zh-CN" ? "爱看相册" : "Self Photos" }}
@@ -158,7 +158,7 @@
                 </v-btn>
               </template>
               <div>
-                <img src="@/assets/qrcode.png" width="200" />
+                <img src="@/assets/weChatQrcode.png" width="200" />
               </div>
             </v-menu>
           </div>
@@ -169,7 +169,7 @@
             class="w-100 h-100 d-flex d-flex flex-column align-center justify-center"
             style="gap: 0 10px"
           >
-            <img src="@/assets/qrcode.png" width="200" height="200" />
+            <img src="@/assets/weChatQrcode.png" width="200" height="200" />
             <v-btn
               class="text-none"
               rounded="lg"

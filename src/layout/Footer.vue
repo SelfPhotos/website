@@ -44,7 +44,26 @@
             </v-btn>
           </template>
           <div>
-            <img src="@/assets/qrcode.png" width="200" />
+            <img src="@/assets/weChatQrcode.png" width="200" />
+          </div>
+        </v-menu>
+        <v-menu open-on-hover>
+          <template v-slot:activator="value">
+            <v-btn
+              variant="text"
+              rounded="lg"
+              class="text-none"
+              size="x-large"
+              v-bind="value.props"
+            >
+              <template #prepend>
+                <img src="@/assets/feedback_logo/rednote.svg" />
+              </template>
+              {{ $t("message.feedback.Rednote") }}
+            </v-btn>
+          </template>
+          <div>
+            <img src="@/assets/rednoteQrcode.png" width="200" />
           </div>
         </v-menu>
         <v-btn

@@ -8,6 +8,7 @@ export default {
       X: "X",
       Bilibili: "Bilibili",
       Reddit: "Reddit",
+      Rednote: "小红书",
     },
     Download: "下载",
     about: {
@@ -111,8 +112,8 @@ export default {
     },
     home: {
       WhatIs: "什么是",
-      slogan1: "一站式个人相册管理专家",
-      slogan2: "备份手机相册，<br />扫描电脑硬盘和网盘照片……让你的回忆井井有条",
+      slogan1: "一站式个人照片管理软件",
+      slogan2: "备份手机相册，<br />扫描电脑硬盘照片……让你的回忆井井有条",
       installer: "安装包",
       mirror: "下载失败？试试备用链接",
       otherPlatform: "其他平台下载",
@@ -175,8 +176,6 @@ export default {
           a: `您可以自由选择需要扫描的文件夹，并提供三种扫描模式：
           <br /><br />
           Scan（扫描）：仅扫描一次，后续文件夹内的更新不会被索引。
-          <br /><br />
-          Watch（监控）：自动检测目录内（包括子文件夹）的照片和视频更新，如有变动，软件会自动同步。
           <br /><br />
           Excluded（排除）：该文件夹内的内容不会被索引。
           <br /><br />

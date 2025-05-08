@@ -29,7 +29,7 @@ jobs:
 
       - name: Update version in config file
         run: |
-          sed -i "s/export const VERSION = \".*\"/export const VERSION = \"${{ inputs.version }}\"/" src/config/url.js
+          sed -i "s/export const VERSION = \".*\"/export const VERSION = \"${{ inputs.version }}\"/" src/config/url.ts
 
       - name: Configure git
         run: |

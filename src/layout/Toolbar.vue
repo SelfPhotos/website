@@ -45,7 +45,7 @@
             </v-btn>
           </template>
           <div>
-            <img src="@/assets/qrcode.png" width="200" />
+            <img src="@/assets/weChatQrcode.png" width="200" />
           </div>
         </v-menu>
         <v-btn class="text-none" rounded="lg" variant="text" @click="goGithub">
