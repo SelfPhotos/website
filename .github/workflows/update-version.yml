@@ -1,0 +1,80 @@
+name: Update Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "New version number (e.g., 0.2.3)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.1
+
+      - name: Update version in config file
+        run: |
+          sed -i "s/export const VERSION = \".*\"/export const VERSION = \"${{ inputs.version }}\"/" src/config/url.js
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add .
+          git commit -m "Update version to ${{ inputs.version }}"
+          git push https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}.git main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Push dist to dist branch
+        run: |
+          # 配置Git
+          git config --global user.name "chocolate-11"
+          git config --global user.email "821655475@qq.com"
+
+          # 保存dist目录到临时位置
+          mkdir -p /tmp/dist
+          cp -r ./dist/* /tmp/dist/
+
+          # 切换到dist分支或创建它
+          git checkout --orphan dist || git checkout dist
+          git reset --hard
+
+          # 复制dist内容回来
+          mkdir -p dist
+          cp -r /tmp/dist/* ./
+
+          # 提交并推送
+          git add -A
+          git commit -m "Update version to ${{ inputs.version }}"
+          git push origin dist --force
+
+      - name: Call server webhook
+        run: |
+          curl -X POST https://aikanxiangce.com/webhook \
+            -H "Content-Type: application/json" \
+            -d '{"ref": "refs/heads/dist"}'
