@@ -64,13 +64,16 @@ jobs:
           git checkout --orphan dist || git checkout dist
           git reset --hard
 
+          rm -rf *
+
           # 复制dist内容回来
-          mkdir -p dist
           cp -r /tmp/dist/* ./
+
+          rm -rf node_modules/ 2>/dev/null || true
 
           # 提交并推送
           git add -A
-          git commit -m "Update version to ${{ inputs.version }}"
+          git commit -m "${{ github.event.head_commit.message }}"
           git push origin dist --force
 
       - name: Call server webhook
