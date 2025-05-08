@@ -1,9 +1,10 @@
 export const DISCORD_URL = "https://discord.gg/VCqXcAz6Js";
-export const YOUTUBE_URL = "https://www.youtube.com/@aicasa-media";
+export const YOUTUBE_URL =
+  "https://www.youtube.com/channel/UCDt825L91UsDUKzmcIY0gAw";
 export const X_URL = "https://x.com/wikkefly";
-export const GITHUB_URL = "https://github.com/aicasa-ai/Aicasa";
+export const GITHUB_URL = "https://github.com/SelfPhotos/SelfPhotos";
 export const BILIBILI_URL = "https://space.bilibili.com/30280506";
-export const REDDIT_URL = "https://www.reddit.com/r/Aicasa";
+// export const REDDIT_URL = "https://www.reddit.com/r/Aicasa";
 
 export const VERSION = "0.2.2";
 export const getGithubDownloadWindowsUrl = () => {

@@ -95,7 +95,7 @@
           </template>
           {{ $t("message.feedback.Bilibili") }}
         </v-btn>
-        <v-btn
+        <!-- <v-btn
           variant="text"
           rounded="lg"
           class="text-none"
@@ -106,7 +106,7 @@
             <img src="@/assets/feedback_logo/reddit.svg" />
           </template>
           {{ $t("message.feedback.Reddit") }}
-        </v-btn>
+        </v-btn> -->
       </div>
       <div class="d-flex align-center justify-center">
         <div
@@ -140,7 +140,6 @@ import {
   BILIBILI_URL,
   DISCORD_URL,
   GITHUB_URL,
-  REDDIT_URL,
   X_URL,
   YOUTUBE_URL,
 } from "@/config/url";
@@ -163,7 +162,7 @@ function goGithub() {
 function goBilibili() {
   window.open(BILIBILI_URL, "_blank");
 }
-function goReddit() {
-  window.open(REDDIT_URL, "_blank");
-}
+// function goReddit() {
+//   window.open(REDDIT_URL, "_blank");
+// }
 </script>

@@ -14,18 +14,22 @@
     <div class="d-flex" style="max-width: 1296px; flex: 1">
       <div style="flex: 1" class="d-flex align-center">
         <img
-          class="cursor-pointer"
-          width="100"
-          height="24.65"
+          class="cursor-pointer pr-1"
+          width="auto"
+          height="40"
           src="@/assets/logo.png"
           @click="router.push('/')"
         />
         <div
-          v-if="appStore.language === 'zh-CN'"
-          class="ml-4 pt-2 font-weight-bold"
-          style="font-size: 18px; line-height: 24px"
+          class="cursor-pointer"
+          style="
+            color: rgb(68, 71, 70);
+            font-family: 'Product Sans', Arial, Helvetica, sans-serif;
+            font-size: 20px;
+          "
+          @click="router.push('/')"
         >
-          爱看相册
+          {{ appStore.language === "zh-CN" ? "爱看相册" : "Self Photos" }}
         </div>
       </div>
       <div class="d-flex align-center ga-1">

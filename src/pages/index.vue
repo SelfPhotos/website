@@ -22,15 +22,7 @@
             style="color: #585858"
           >
             {{ $t("message.home.WhatIs") }}
-            <div v-if="appStore.language === 'zh-CN'">爱看相册</div>
-            <template v-else>
-              <img
-                class="ml-4"
-                src="@/assets/logo.png"
-                style="height: 3.75rem; padding: 8px 0"
-                alt="Logo"
-              />
-            </template>
+            {{ appStore.language === "zh-CN" ? "爱看相册" : "Self Photos" }}
           </div>
         </transition>
         <transition name="fade">
