@@ -103,10 +103,10 @@
           "
         >
           <iframe
-            v-if="appStore.isInChina"
+            v-if="appStore.language === 'zh-CN'"
             ref="iframeRef"
             width="100%"
-            src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=114110603723702&bvid=BV1C39oYgE4c&cid=28709751528&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
+            src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=114495338840193&bvid=BV1h179zAEpm&cid=29928132339&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
             scrolling="no"
             border="0"
             frameborder="no"
@@ -120,7 +120,7 @@
             v-else
             ref="iframeRef"
             width="100%"
-            src="https://www.youtube.com/embed/NQFDZB1TzEE?autoplay=1&mute=1&loop=1&playlist=NQFDZB1TzEE"
+            src="https://www.youtube.com/embed/60HYwOIEV2g?autoplay=1&mute=1&loop=1&playlist=60HYwOIEV2g"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -132,7 +132,7 @@
         </div>
       </v-col>
       <v-col cols="12">
-        <transition name="fade" v-if="!appStore.isInChina">
+        <transition name="fade" v-if="appStore.language !== 'zh-CN'">
           <div
             v-if="homeIntersecting"
             class="w-100 h-100 d-flex d-flex justify-center"
