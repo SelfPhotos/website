@@ -175,7 +175,7 @@ export default {
         },
         6: {
           q: "How can I add new photos and videos from my local computer to the software?",
-          a: `You can freely select folders to scan, and there are three scanning modes available:
+          a: `You can freely select folders to scan, and there are two scanning modes available:
           <br /><br />
           Scan: Scans the folder once, and any future updates to the folder will not be indexed.
           <br /><br />

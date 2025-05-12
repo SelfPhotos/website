@@ -94,14 +94,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import localJson from "@/locales/locale.json";
 import { onMounted, reactive, ref, watch } from "vue";
 import { useAppStore } from "@/store/appStore";
 import { DISCORD_URL, GITHUB_URL } from "@/config/url";
+import { setTitle } from "@/utils/common";
 
 const { locale } = useI18n();
+const route = useRoute();
 const router = useRouter();
 const appStore = useAppStore();
 
@@ -117,6 +119,7 @@ watch(
   (val) => {
     locale.value = val;
     appStore.changeLanguage(val);
+    setTitle(route.path, appStore.language);
   }
 );
 

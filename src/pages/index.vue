@@ -236,17 +236,6 @@
         style="height: 48px; color: #000; transition: all 0.3s ease"
         :style="{
           opacity:
-            activeSection === 'watchMode' || activeSection === 'tab' ? 1 : 0.5,
-        }"
-        @click="scrollTo('watchMode')"
-      >
-        {{ $t("message.home.section.watchMode.title") }}
-      </div>
-      <div
-        class="d-flex align-center justify-center cursor-pointer"
-        style="height: 48px; color: #000; transition: all 0.3s ease"
-        :style="{
-          opacity:
             activeSection === 'privacy' || activeSection === 'tab' ? 1 : 0.5,
         }"
         @click="scrollTo('privacy')"
@@ -367,56 +356,6 @@
     </v-row>
   </section>
   <section
-    ref="watchModeSection"
-    class="d-flex justify-center mb-6 px-16"
-    v-intersect="{
-      handler: (isIntersecting: boolean, entries: any) => {
-        watchModeIntersecting = entries[0].intersectionRatio >= 0.5 || watchModeIntersecting;
-      },
-      options: {
-        threshold: [0, 0.5, 1.0],
-      },
-    }"
-  >
-    <v-row
-      class="overflow-hidden ma-0 pa-0"
-      style="
-        max-width: 1296px;
-        width: 100%;
-        background: #e0f7fa;
-        border-radius: 30px;
-      "
-    >
-      <v-col
-        cols="6"
-        style="padding: 24px 95px 24px 79px"
-        class="d-flex flex-column justify-center align-center"
-      >
-        <transition name="fade">
-          <div v-if="watchModeIntersecting" class="w-100 text-h2 mb-16">
-            {{ $t("message.home.section.watchMode.title") }}
-          </div>
-        </transition>
-        <transition name="fade">
-          <div v-if="watchModeIntersecting" class="w-100 text-h6 pl-4 mb-4">
-            {{ $t("message.home.section.watchMode.subtitle") }}
-          </div>
-        </transition>
-        <transition name="fade">
-          <div v-if="watchModeIntersecting" class="w-100 text-body-1 pl-4">
-            {{ $t("message.home.section.watchMode.content") }}
-          </div>
-        </transition>
-      </v-col>
-      <v-col cols="6" class="overflow-hidden ma-0" style="padding: 80px">
-        <img
-          src="@/assets/img/feat-watch.png"
-          style="width: 100%; height: 100%; border-radius: 30px"
-        />
-      </v-col>
-    </v-row>
-  </section>
-  <section
     ref="privacySection"
     class="d-flex justify-center mb-6 px-16"
     v-intersect="{
@@ -437,12 +376,6 @@
         border-radius: 30px;
       "
     >
-      <v-col cols="6" class="overflow-hidden ma-0" style="padding: 80px">
-        <img
-          src="@/assets/img/feat-privacy.png"
-          style="width: 100%; height: 100%; border-radius: 30px"
-        />
-      </v-col>
       <v-col
         cols="6"
         style="padding: 24px 95px 24px 79px"
@@ -463,6 +396,12 @@
             {{ $t("message.home.section.privacy.content") }}
           </div>
         </transition>
+      </v-col>
+      <v-col cols="6" class="overflow-hidden ma-0" style="padding: 80px">
+        <img
+          src="@/assets/img/feat-privacy.png"
+          style="width: 100%; height: 100%; border-radius: 30px"
+        />
       </v-col>
     </v-row>
   </section>
@@ -487,6 +426,12 @@
         border-radius: 30px;
       "
     >
+      <v-col cols="6" class="overflow-hidden ma-0" style="padding: 80px">
+        <img
+          src="@/assets/img/feat-unlimited.png"
+          style="width: 100%; height: 100%; border-radius: 30px"
+        />
+      </v-col>
       <v-col
         cols="6"
         style="padding: 24px 95px 24px 79px"
@@ -507,12 +452,6 @@
             {{ $t("message.home.section.unlimited.content") }}
           </div>
         </transition>
-      </v-col>
-      <v-col cols="6" class="overflow-hidden ma-0" style="padding: 80px">
-        <img
-          src="@/assets/img/feat-unlimited.png"
-          style="width: 100%; height: 100%; border-radius: 30px"
-        />
       </v-col>
     </v-row>
   </section>
@@ -574,7 +513,6 @@ const iframeHeight = ref(0);
 
 const timelineSection = ref<HTMLElement | null>(null);
 const foldersSection = ref<HTMLElement | null>(null);
-const watchModeSection = ref<HTMLElement | null>(null);
 const privacySection = ref<HTMLElement | null>(null);
 const unlimitedSection = ref<HTMLElement | null>(null);
 const faqSection = ref<HTMLElement | null>(null);
@@ -582,7 +520,6 @@ const faqSection = ref<HTMLElement | null>(null);
 const homeIntersecting = ref(false);
 const timelineIntersecting = ref(false);
 const foldersIntersecting = ref(false);
-const watchModeIntersecting = ref(false);
 const privacyIntersecting = ref(false);
 const unlimitedIntersecting = ref(false);
 
@@ -604,17 +541,15 @@ onUnmounted(() => {
 const checkScroll = () => {
   const timeline = timelineSection.value;
   const folders = foldersSection.value;
-  const watchMode = watchModeSection.value;
   const privacy = privacySection.value;
   const unlimited = unlimitedSection.value;
   const faq = faqSection.value;
-  if (!timeline || !folders || !watchMode || !faq || !privacy || !unlimited) {
+  if (!timeline || !folders || !faq || !privacy || !unlimited) {
     return;
   }
 
   const timelinePosition = timeline.getBoundingClientRect().top;
   const foldersPosition = folders.getBoundingClientRect().top;
-  const watchModePosition = watchMode.getBoundingClientRect().top;
   const privacyPosition = privacy.getBoundingClientRect().top;
   const unlimitedPosition = unlimited.getBoundingClientRect().top;
   const faqPosition = faq.getBoundingClientRect().top;
@@ -626,8 +561,6 @@ const checkScroll = () => {
     activeSection.value = "unlimited";
   } else if (privacyPosition < windowHeight / 2) {
     activeSection.value = "privacy";
-  } else if (watchModePosition < windowHeight / 2) {
-    activeSection.value = "watchMode";
   } else if (foldersPosition < windowHeight / 2) {
     activeSection.value = "folders";
   } else if (timelinePosition < windowHeight / 2) {
@@ -653,15 +586,6 @@ const scrollTo = (target: string) => {
 
       window.scrollTo({
         top: folders.offsetTop - offset,
-        behavior: "smooth",
-      });
-    }
-  } else if (target === "watchMode") {
-    if (watchModeSection.value) {
-      const watchMode = watchModeSection.value;
-
-      window.scrollTo({
-        top: watchMode.offsetTop - offset,
         behavior: "smooth",
       });
     }
