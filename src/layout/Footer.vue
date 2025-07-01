@@ -119,7 +119,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goReddit"
+          @click="onWindowOpen(REDDIT_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/reddit.svg" />
@@ -166,8 +166,4 @@ import { onWindowOpen } from "@/utils/common";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-
-// function goReddit() {
-//   window.open(REDDIT_URL, "_blank");
-// }
 </script>

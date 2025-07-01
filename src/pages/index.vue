@@ -669,7 +669,7 @@ const onMirrorDownloadClick = () => {
 
 <style>
 .active {
-  color: #8a37a1; /* Highlight color */
+  color: #8a37a1;
   font-weight: bold;
 }
 
