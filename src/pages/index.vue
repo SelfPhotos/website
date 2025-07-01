@@ -138,7 +138,13 @@
             class="w-100 h-100 d-flex d-flex justify-center"
             style="gap: 0 10px"
           >
-            <v-btn class="text-none" rounded="lg" variant="text" size="x-large">
+            <v-btn
+              class="text-none"
+              rounded="lg"
+              variant="text"
+              size="x-large"
+              @click="goDiscord"
+            >
               <img src="@/assets/feedback_logo/discord.svg" class="mr-2" />
               {{ $t("message.home.join") }}
               {{ $t("message.feedback.Discord") }}
@@ -498,6 +504,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { useAppStore } from "@/store/appStore";
 import {
+  DISCORD_URL,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
@@ -537,6 +544,10 @@ onUnmounted(() => {
   window.removeEventListener("scroll", checkScroll);
   window.removeEventListener("resize", onResize);
 });
+
+function goDiscord() {
+  window.open(DISCORD_URL, "_blank");
+}
 
 const checkScroll = () => {
   const timeline = timelineSection.value;
