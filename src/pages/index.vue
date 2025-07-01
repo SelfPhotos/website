@@ -538,7 +538,7 @@ const faqLength = ref(9);
 onMounted(() => {
   window.addEventListener("scroll", checkScroll);
   window.addEventListener("resize", onResize);
-  checkScroll(); // Initial check
+  checkScroll();
   onResize();
 });
 onUnmounted(() => {
