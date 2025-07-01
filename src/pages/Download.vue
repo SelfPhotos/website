@@ -168,6 +168,7 @@ import {
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
 import { useAppStore } from "@/store/appStore";
+import { onWindowOpen } from "@/utils/common";
 
 const appStore = useAppStore();
 const onWindowsDownloadClick = () => {
@@ -177,7 +178,7 @@ const onWindowsDownloadClick = () => {
   } else {
     url = getGithubDownloadWindowsUrl();
   }
-  window.open(url, "_blank");
+  onWindowOpen(url);
 };
 const onMacOSDownloadClick = () => {
   let url = "";
@@ -186,7 +187,7 @@ const onMacOSDownloadClick = () => {
   } else {
     url = getGithubDownloadMacOSUrl();
   }
-  window.open(url, "_blank");
+  onWindowOpen(url);
 };
 </script>
 

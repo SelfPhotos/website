@@ -143,7 +143,7 @@
               rounded="lg"
               variant="text"
               size="x-large"
-              @click="goDiscord"
+              @click="onWindowOpen(DISCORD_URL)"
             >
               <img src="@/assets/feedback_logo/discord.svg" class="mr-2" />
               {{ $t("message.home.join") }}
@@ -510,6 +510,7 @@ import {
   getTencentDownloadMacOSUrl,
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
+import { onWindowOpen } from "@/utils/common";
 const router = useRouter();
 const appStore = useAppStore();
 
@@ -544,10 +545,6 @@ onUnmounted(() => {
   window.removeEventListener("scroll", checkScroll);
   window.removeEventListener("resize", onResize);
 });
-
-function goDiscord() {
-  window.open(DISCORD_URL, "_blank");
-}
 
 const checkScroll = () => {
   const timeline = timelineSection.value;
@@ -653,7 +650,7 @@ const onDownloadClick = () => {
   } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
     url = getGithubDownloadMacOSUrl();
   }
-  window.open(url, "_blank");
+  onWindowOpen(url);
 };
 const onMirrorDownloadClick = () => {
   let url = "";
@@ -666,7 +663,7 @@ const onMirrorDownloadClick = () => {
   } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
     url = getTencentDownloadMacOSUrl();
   }
-  window.open(url, "_blank");
+  onWindowOpen(url);
 };
 </script>
 

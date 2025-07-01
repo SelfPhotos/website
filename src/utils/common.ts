@@ -52,3 +52,7 @@ export function setTitle(path: string, language: string) {
       }
   }
 }
+
+export function onWindowOpen(targetUrl: string) {
+  window.open(targetUrl, "_blank");
+}

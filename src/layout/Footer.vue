@@ -21,7 +21,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goDiscord"
+          @click="onWindowOpen(DISCORD_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/discord.svg" />
@@ -71,7 +71,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goYoutube"
+          @click="onWindowOpen(YOUTUBE_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/youtube.svg" />
@@ -83,7 +83,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goX"
+          @click="onWindowOpen(X_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/x_light.svg" />
@@ -95,7 +95,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goGithub"
+          @click="onWindowOpen(GITHUB_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/github_light.svg" />
@@ -107,7 +107,7 @@
           rounded="lg"
           class="text-none"
           size="x-large"
-          @click="goBilibili"
+          @click="onWindowOpen(BILIBILI_URL)"
         >
           <template #prepend>
             <img src="@/assets/feedback_logo/bilibili.svg" />
@@ -162,25 +162,11 @@ import {
   X_URL,
   YOUTUBE_URL,
 } from "@/config/url";
+import { onWindowOpen } from "@/utils/common";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-function goDiscord() {
-  window.open(DISCORD_URL, "_blank");
-}
-function goYoutube() {
-  window.open(YOUTUBE_URL, "_blank");
-}
-function goX() {
-  window.open(X_URL, "_blank");
-}
-function goGithub() {
-  window.open(GITHUB_URL, "_blank");
-}
-function goBilibili() {
-  window.open(BILIBILI_URL, "_blank");
-}
 // function goReddit() {
 //   window.open(REDDIT_URL, "_blank");
 // }

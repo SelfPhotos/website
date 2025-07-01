@@ -48,7 +48,12 @@
             <img src="@/assets/weChatQrcode.png" width="200" />
           </div>
         </v-menu>
-        <v-btn class="text-none" rounded="lg" variant="text" @click="goGithub">
+        <v-btn
+          class="text-none"
+          rounded="lg"
+          variant="text"
+          @click="onWindowOpen(GITHUB_URL)"
+        >
           {{ $t("message.feedback.Github") }}
           <template #append>
             <span class="material-symbols-outlined" style="font-size: 20px">
@@ -56,7 +61,12 @@
             </span>
           </template>
         </v-btn>
-        <v-btn class="text-none" rounded="lg" variant="text" @click="goDiscord">
+        <v-btn
+          class="text-none"
+          rounded="lg"
+          variant="text"
+          @click="onWindowOpen(DISCORD_URL)"
+        >
           {{ $t("message.feedback.Discord") }}
           <template #append>
             <span class="material-symbols-outlined" style="font-size: 20px">
@@ -100,7 +110,7 @@ import localJson from "@/locales/locale.json";
 import { onMounted, reactive, ref, watch } from "vue";
 import { useAppStore } from "@/store/appStore";
 import { DISCORD_URL, GITHUB_URL } from "@/config/url";
-import { setTitle } from "@/utils/common";
+import { onWindowOpen, setTitle } from "@/utils/common";
 
 const { locale } = useI18n();
 const route = useRoute();
@@ -122,11 +132,4 @@ watch(
     setTitle(route.path, appStore.language);
   }
 );
-
-function goDiscord() {
-  window.open(DISCORD_URL, "_blank");
-}
-function goGithub() {
-  window.open(GITHUB_URL, "_blank");
-}
 </script>
