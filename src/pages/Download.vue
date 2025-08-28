@@ -9,7 +9,8 @@
     >
       <div style="margin-bottom: 100px">
         <div class="text-h2 font-weight-bold mb-10">
-          {{ $t("message.Download") }} Self Photos
+          {{ $t("message.Download") }}
+          {{ appStore.language === "zh-CN" ? "爱看相册" : "Self Photos" }}
         </div>
       </div>
       <div class="w-100 d-flex justify-space-between flex-wrap ga-2">
@@ -120,15 +121,29 @@
             overflow: hidden;
           "
         >
-          <div
-            class="mb-4 d-flex align-center justify-center"
-            style="width: 60px; height: 60px"
-          >
-            <img src="@/assets/logo/android.png" width="60" height="60" />
-          </div>
+          <v-badge content="new" color="error">
+            <div
+              class="mb-4 cursor-pointer d-flex align-center justify-center os-box"
+              style="width: 60px; height: 60px"
+            >
+              <img
+                class="os-logo"
+                src="@/assets/logo/android.png"
+                width="60"
+                height="60"
+              />
+              <span
+                class="material-symbols-outlined os-download"
+                style="font-size: 40px"
+                @click="onAndroidDownloadClick"
+              >
+                download
+              </span>
+            </div>
+          </v-badge>
           <span style="font-size: 14px; font-weight: 500">Android </span>
           <span style="font-size: 12px">{{
-            $t("message.download.comingSoon")
+            $t("message.download.latest")
           }}</span>
         </div>
         <div
@@ -162,6 +177,7 @@
 
 <script lang="ts" setup>
 import {
+  getDownloadAndroidUrl,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
@@ -187,6 +203,10 @@ const onMacOSDownloadClick = () => {
   } else {
     url = getGithubDownloadMacOSUrl();
   }
+  onWindowOpen(url);
+};
+const onAndroidDownloadClick = () => {
+  let url = getDownloadAndroidUrl();
   onWindowOpen(url);
 };
 </script>

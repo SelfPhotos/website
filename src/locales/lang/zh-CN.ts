@@ -202,6 +202,7 @@ export default {
     download: {
       comingSoon: "即将到来",
       AppleSilicon: "苹果 M 系列芯片",
+      latest: "最新推出",
     },
     locale: {
       "de-DE": "德语",

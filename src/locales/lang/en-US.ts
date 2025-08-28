@@ -204,6 +204,7 @@ export default {
     download: {
       comingSoon: "Coming soon",
       AppleSilicon: "Apple silicon",
+      latest: "Just Released",
     },
     locale: {
       "de-DE": "German",
