@@ -20,9 +20,6 @@ export const getTencentDownloadWindowsUrl = () => {
 export const getTencentDownloadMacOSUrl = () => {
   return `https://selfphotos-1253926100.cos.ap-guangzhou.myqcloud.com/selfphotos/releases/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_aarch64.dmg`;
 };
-// export const getDownloadAndroidUrl = () => {
-//   return `http://download.aikanxiangce.com/android/releases/${ANDROID_VERSION}/SelfPhotos_${ANDROID_VERSION}.apk`;
-// };
 export const getDownloadAndroidUrl = () => {
-  return `http://aikanxiangce.com/SelfPhotos_${ANDROID_VERSION}.apk`;
+  return `https://aikanxiangce.com/download/android/releases/${ANDROID_VERSION}/SelfPhotos_${ANDROID_VERSION}.apk`;
 };
