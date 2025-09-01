@@ -13,14 +13,7 @@ import { ChevronDownIcon, PlayCircleIcon } from "@heroicons/vue/20/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { useAppStore } from "@/stores/appStore";
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import {
-  DISCORD_URL,
-  getDownloadAndroidUrl,
-  getGithubDownloadMacOSUrl,
-  getGithubDownloadWindowsUrl,
-  getTencentDownloadMacOSUrl,
-  getTencentDownloadWindowsUrl,
-} from "@/config/url";
+import { DISCORD_URL } from "@/config/url";
 import { onWindowOpen } from "@/utils/common";
 import { LanguageKind } from "@/types/enums";
 

@@ -8,7 +8,6 @@ import {
   YOUTUBE_URL,
 } from "@/config/url";
 import { onWindowOpen } from "@/utils/common";
-import { PhotoIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref } from "vue";
 
 const locationHref = ref("");
