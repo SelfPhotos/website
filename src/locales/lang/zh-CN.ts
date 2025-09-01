@@ -32,6 +32,8 @@ export default {
       backupTip: "自动备份移动端相册到您的电脑",
       viewTip: "按照时间轴或文件夹结构浏览照片",
       googlePhotoTip: "在你的电脑和移动端本地有着Google Photo一样的体验",
+      tip: "跨平台，保护隐私，简单易用，照片备份，照片检索，时间轴视图，文件夹视图……照片管理本应如此简单",
+      watchVideo: "观看视频",
 
       downloadInstaller: "下载 {platform} 安装包",
       learnMoreFeatures: "了解更多功能",

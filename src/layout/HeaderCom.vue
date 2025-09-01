@@ -59,30 +59,30 @@ onMounted(() => {
             $t("message.app.name")
           }}</span>
         </div>
-        <nav class="hidden md:flex items-center space-x-8">
-          <a
-            class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-            href="/faq"
-          >
-            {{ $t("message.router.faq") }}
-          </a>
-          <a
-            class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-            href="/releases"
-          >
-            {{ $t("message.router.releases") }}
-          </a>
-          <a
-            class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
-            href="/download"
-          >
-            {{ $t("message.router.download") }}
-          </a>
-        </nav>
         <div class="flex items-center space-x-4">
-          <!-- TODO 窄屏下如何显示 -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a
+              class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              href="/faq"
+            >
+              {{ $t("message.router.faq") }}
+            </a>
+            <a
+              class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              href="/releases"
+            >
+              {{ $t("message.router.releases") }}
+            </a>
+            <a
+              class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              href="/download"
+            >
+              {{ $t("message.router.download") }}
+            </a>
+          </nav>
+
           <Listbox v-model="selectedLanguage" class="flex w-30">
-            <div class="relative mt-1">
+            <div class="relative">
               <ListboxButton
                 class="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors cursor-pointer whitespace-nowrap"
                 v-slot="{ open }"

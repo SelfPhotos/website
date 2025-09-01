@@ -24,11 +24,11 @@ onMounted(() => {
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div>
           <div class="flex items-center space-x-2 mb-6">
-            <div
-              class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center"
-            >
-              <photo-icon class="text-white text-lg size-6" />
-            </div>
+            <img
+              src="@/assets/images/logo/logo.png"
+              alt="logo"
+              class="w-8 h-8"
+            />
             <span class="text-xl font-['Pacifico']">{{
               $t("message.app.name")
             }}</span>

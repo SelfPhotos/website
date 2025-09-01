@@ -33,6 +33,8 @@ export default {
       viewTip: "Browse photos by timeline or folder structure",
       googlePhotoTip:
         "Google Photos experience, right on your computer and mobile locally",
+      tip: "Cross-platform, privacy protection, simple easy to use, photo backup, timeline and folder view... Photo management should be this simple",
+      watchVideo: "Watch Video",
 
       downloadInstaller: "Download {platform} Installer",
       learnMoreFeatures: "Learn more features",

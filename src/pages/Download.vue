@@ -53,7 +53,7 @@ const onAndroidDownloadClick = () => {
           >
             <div class="text-center">
               <div
-                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
               >
                 <img src="@/assets/images/logo/windows.svg" alt="Windows" />
               </div>
@@ -78,7 +78,7 @@ const onAndroidDownloadClick = () => {
           >
             <div class="text-center">
               <div
-                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
               >
                 <img src="@/assets/images/logo/mac.svg" alt="MacOS" />
               </div>
@@ -132,7 +132,7 @@ const onAndroidDownloadClick = () => {
             </div>
             <div class="text-center">
               <div
-                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
               >
                 <img src="@/assets/images/logo/android.svg" alt="Android" />
               </div>

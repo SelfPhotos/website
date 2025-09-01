@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { ArrowDownTrayIcon, PhotoIcon } from "@heroicons/vue/24/outline";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import {
   DevicePhoneMobileIcon,
   ComputerDesktopIcon,
@@ -9,10 +9,10 @@ import {
   ShieldCheckIcon,
   ServerStackIcon,
 } from "@heroicons/vue/16/solid";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { ChevronDownIcon, PlayCircleIcon } from "@heroicons/vue/20/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { useAppStore } from "@/stores/appStore";
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import {
   DISCORD_URL,
   getDownloadAndroidUrl,
@@ -22,189 +22,107 @@ import {
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
 import { onWindowOpen } from "@/utils/common";
-import { LanguageKind, OsTypeKind } from "@/types/enums";
+import { LanguageKind } from "@/types/enums";
 
 const appStore = useAppStore();
 
-const isShowMirrorBtn = ref(false);
+const currentIndex = ref(0);
+let timer: any = null;
 
-const onDownloadClick = () => {
-  if (
-    appStore.osType !== OsTypeKind.Windows &&
-    appStore.osType !== OsTypeKind.MacOS &&
-    appStore.osType !== OsTypeKind.Android
-  ) {
-    return;
-  }
-  if (
-    appStore.osType === OsTypeKind.Windows ||
-    appStore.osType === OsTypeKind.MacOS
-  ) {
-    isShowMirrorBtn.value = true;
-  }
-
-  let url = "";
-  if (
-    appStore.language === LanguageKind.zh &&
-    appStore.osType === OsTypeKind.Windows
-  ) {
-    url = getTencentDownloadWindowsUrl();
-  } else if (
-    appStore.language === LanguageKind.zh &&
-    appStore.osType === OsTypeKind.MacOS
-  ) {
-    url = getTencentDownloadMacOSUrl();
-  } else if (
-    appStore.language !== LanguageKind.zh &&
-    appStore.osType === OsTypeKind.Windows
-  ) {
-    url = getGithubDownloadWindowsUrl();
-  } else if (
-    appStore.language !== LanguageKind.zh &&
-    appStore.osType === OsTypeKind.MacOS
-  ) {
-    url = getGithubDownloadMacOSUrl();
-  } else if (appStore.osType === OsTypeKind.Android) {
-    url = getDownloadAndroidUrl();
-  }
-  onWindowOpen(url);
-};
-const onMirrorDownloadClick = () => {
-  if (
-    appStore.osType !== OsTypeKind.Windows &&
-    appStore.osType !== OsTypeKind.MacOS
-  ) {
-    return;
-  }
-
-  let url = "";
-  if (
-    appStore.language === LanguageKind.zh &&
-    appStore.osType === OsTypeKind.Windows
-  ) {
-    url = getGithubDownloadWindowsUrl();
-  } else if (
-    appStore.language === LanguageKind.zh &&
-    appStore.osType === OsTypeKind.MacOS
-  ) {
-    url = getGithubDownloadMacOSUrl();
-  } else if (
-    appStore.language !== LanguageKind.zh &&
-    appStore.osType === OsTypeKind.Windows
-  ) {
-    url = getTencentDownloadWindowsUrl();
-  } else if (
-    appStore.language !== LanguageKind.zh &&
-    appStore.osType === OsTypeKind.MacOS
-  ) {
-    url = getTencentDownloadMacOSUrl();
-  }
-  onWindowOpen(url);
-};
+onMounted(() => {
+  timer = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % 3;
+  }, 3000);
+});
+onBeforeUnmount(() => {
+  clearInterval(timer);
+});
 </script>
 
 <template>
   <section
-    class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat pb-19"
+    class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
+    style="
+      background: radial-gradient(at 40% 20%, #ffb87a 0, transparent 50%),
+        radial-gradient(at 80% 0, #1fddff 0, transparent 50%),
+        radial-gradient(at 0 50%, #ffdbde 0, transparent 50%),
+        radial-gradient(at 80% 50%, #ff85ad 0, transparent 50%),
+        radial-gradient(at 0 100%, #ffb58a 0, transparent 50%),
+        radial-gradient(at 80% 100%, #6b66ff 0, transparent 50%),
+        radial-gradient(at 0 0, #ff85a7 0, transparent 50%);
+    "
   >
     <div class="container mx-auto px-6 relative z-10">
-      <div
-        class=""
-        :class="[
-          appStore.language === LanguageKind.zh ? 'lg:flex-row' : '',
-          'flex flex-col items-center gap-12',
-        ]"
-      >
-        <div class="flex-1 lg:flex-[2] text-center lg:text-left">
-          <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
-            <h1
-              class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight"
+      <div class="px-12 py-36 flex flex-col items-center">
+        <h2
+          class="text-6xl lg:text-8xl font-bold text-gray-800 mb-6 leading-tight"
+        >
+          {{ $t("message.app.name") }}
+        </h2>
+
+        <div class="mb-24 relative" style="width: 100%">
+          <transition name="fade-slide" mode="out-in">
+            <h4
+              :key="currentIndex"
+              class="text-2xl lg:text-4xl font-bold text-gray-800 leading-tight absolute text-center"
+              style="color: rgb(243, 74, 32); left: 0; right: 0"
             >
-              {{ $t("message.app.name") }}
-            </h1>
-            <ul class="list-disc mb-8 pl-8 space-y-1">
-              <li class="text-gray-600 leading-relaxed">
-                {{ $t("message.home.scanTip") }}
-              </li>
-              <li class="text-gray-600 leading-relaxed">
-                {{ $t("message.home.backupTip") }}
-              </li>
-              <li class="text-gray-600 leading-relaxed">
-                {{ $t("message.home.viewTip") }}
-              </li>
-              <li class="text-gray-600 leading-relaxed">
-                {{ $t("message.home.googlePhotoTip") }}
-              </li>
-            </ul>
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-end"
-            >
-              <a
-                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap"
-                href="#features"
-              >
-                {{ $t("message.home.learnMoreFeatures") }}
-              </a>
-              <a
-                v-if="
-                  appStore.osType === OsTypeKind.Windows ||
-                  appStore.osType === OsTypeKind.MacOS ||
-                  appStore.osType === OsTypeKind.Android
-                "
-                class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center"
-                href="#"
-                @click.prevent="onDownloadClick"
-              >
-                <arrow-down-tray-icon class="w-5 h-5 mr-2" />
-                {{
-                  $t("message.home.downloadInstaller", {
-                    platform: appStore.osType,
-                  })
-                }}
-              </a>
-              <a
-                class="text-sm text-gray-500 inline-block ml-2 mb-2"
-                href="/download"
-              >
-                {{ $t("message.home.otherPlatform") }}
-              </a>
-            </div>
-            <div
-              class="mt-8 flex flex-col sm:flex-row gap-8 justify-center lg:justify-start"
-            >
-              <a
-                v-show="isShowMirrorBtn"
-                class="text-sm text-gray-500 inline-block"
-                href="#"
-                @click.prevent="onMirrorDownloadClick"
-              >
-                {{ $t("message.home.mirror") }}
-              </a>
-            </div>
-          </div>
+              <span v-if="currentIndex === 0">{{
+                $t("message.home.scanTip")
+              }}</span>
+              <span v-else-if="currentIndex === 1">{{
+                $t("message.home.backupTip")
+              }}</span>
+              <span v-else-if="currentIndex === 2">{{
+                $t("message.home.viewTip")
+              }}</span>
+            </h4>
+          </transition>
         </div>
-        <div class="flex-1 flex flex-col justify-center lg:justify-end gap-4">
-          <div
-            v-show="appStore.language === LanguageKind.zh"
-            class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl text-center"
+
+        <p
+          class="text-1xl lg:text-3xl text-gray-600 leading-relaxed mb-18 text-center lg:px-36"
+        >
+          {{ $t("message.home.tip") }}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Popover
+            v-if="appStore.language === LanguageKind.zh"
+            v-slot="{ open }"
+            class="relative"
           >
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">
-              {{ $t("message.home.joinWechat") }}
-            </h3>
-            <div
-              class="w-48 h-48 mx-auto mb-4 bg-white rounded-lg shadow-lg flex items-center justify-center"
+            <PopoverButton
+              :class="open ? 'text-white' : ''"
+              class="bg-blue-600 text-white px-24 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center"
             >
               <img
-                class="w-full h-full object-cover rounded-lg"
-                src="@/assets/images/weChatQrcode.png"
-                alt="微信公众号二维码"
+                src="@/assets/images/feedback_logo/wechat.svg"
+                alt="Discord"
+                class="w-6 h-6 mr-2"
               />
-            </div>
-            <p class="text-gray-600">{{ $t("message.home.scanWechatTip") }}</p>
-          </div>
+              “爱看相册”微信公众号
+            </PopoverButton>
+
+            <transition
+              enter-active-class="transition duration-200 ease-out"
+              enter-from-class="translate-y-1 opacity-0"
+              enter-to-class="translate-y-0 opacity-100"
+              leave-active-class="transition duration-150 ease-in"
+              leave-from-class="translate-y-0 opacity-100"
+              leave-to-class="translate-y-1 opacity-0"
+            >
+              <PopoverPanel class="absolute -top-55 left-20 z-10 transform p-4">
+                <img
+                  src="@/assets/images/weChatQrcode.png"
+                  alt="weChatQrcode"
+                  class="w-50 h-50"
+                />
+              </PopoverPanel>
+            </transition>
+          </Popover>
           <a
-            v-show="appStore.language === LanguageKind.en"
-            class="bg-blue-600 text-white px-32 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center justify-center"
+            v-else
+            class="bg-blue-600 text-white px-24 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center"
             href="#"
             @click.prevent="onWindowOpen(DISCORD_URL)"
           >
@@ -215,92 +133,19 @@ const onMirrorDownloadClick = () => {
             />
             Join Our Discord
           </a>
+
+          <a
+            class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center justify-center"
+            href="#video"
+          >
+            <PlayCircleIcon class="w-6 h-6 mr-2" />
+            {{ $t("message.home.watchVideo") }}
+          </a>
         </div>
       </div>
     </div>
   </section>
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-          {{ $t("message.home.section.platform.title") }}
-        </h2>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-        <div
-          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
-        >
-          <div
-            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-          >
-            <img
-              src="@/assets/images/logo/windows.svg"
-              alt="Windows"
-              class="w-13 h-13"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Windows</h3>
-        </div>
-        <div
-          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
-        >
-          <div
-            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-          >
-            <img
-              src="@/assets/images/logo/mac.svg"
-              alt="MacOS"
-              class="w-13 h-13"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">MacOS</h3>
-        </div>
-        <div
-          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
-        >
-          <div
-            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-          >
-            <img
-              src="@/assets/images/logo/linux_white.svg"
-              alt="Linux"
-              class="w-13 h-13"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Linux</h3>
-        </div>
-        <div
-          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
-        >
-          <div
-            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-          >
-            <img
-              src="@/assets/images/logo/android.svg"
-              alt="Android"
-              class="w-13 h-13"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Android</h3>
-        </div>
-        <div
-          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
-        >
-          <div
-            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
-          >
-            <img
-              src="@/assets/images/logo/ios_white.svg"
-              alt="iOS"
-              class="w-13 h-13"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-20 bg-gray-50">
+  <section id="video" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
@@ -342,6 +187,87 @@ const onMirrorDownloadClick = () => {
               ></iframe>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          {{ $t("message.home.section.platform.title") }}
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+          >
+            <img
+              src="@/assets/images/logo/windows.svg"
+              alt="Windows"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Windows</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+          >
+            <img
+              src="@/assets/images/logo/mac.svg"
+              alt="MacOS"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">MacOS</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+          >
+            <img
+              src="@/assets/images/logo/linux_white.svg"
+              alt="Linux"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Linux</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+          >
+            <img
+              src="@/assets/images/logo/android.svg"
+              alt="Android"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Android</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+          >
+            <img
+              src="@/assets/images/logo/ios_white.svg"
+              alt="iOS"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
         </div>
       </div>
     </div>
@@ -504,4 +430,30 @@ const onMirrorDownloadClick = () => {
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* 进入时（下一行） */
+.fade-slide-enter-from {
+  transform: translateY(50%) scale(0.8);
+  opacity: 0;
+}
+.fade-slide-enter-active {
+  transition: all 0.6s ease;
+}
+.fade-slide-enter-to {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* 离开时（当前行） */
+.fade-slide-leave-from {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.fade-slide-leave-active {
+  transition: all 0.6s ease;
+}
+.fade-slide-leave-to {
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+}
+</style>
