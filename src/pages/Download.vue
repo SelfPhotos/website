@@ -7,6 +7,7 @@ import {
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
 import { useAppStore } from "@/stores/appStore";
+import { LanguageKind } from "@/types/enums";
 import { onWindowOpen } from "@/utils/common";
 import { ArrowDownTrayIcon } from "@heroicons/vue/24/outline";
 
@@ -14,7 +15,7 @@ const appStore = useAppStore();
 
 const onWindowsDownloadClick = () => {
   let url = "";
-  if (appStore.language === "zh-CN") {
+  if (appStore.language === LanguageKind.zh) {
     url = getTencentDownloadWindowsUrl();
   } else {
     url = getGithubDownloadWindowsUrl();
@@ -23,7 +24,7 @@ const onWindowsDownloadClick = () => {
 };
 const onMacOSDownloadClick = () => {
   let url = "";
-  if (appStore.language === "zh-CN") {
+  if (appStore.language === LanguageKind.zh) {
     url = getTencentDownloadMacOSUrl();
   } else {
     url = getGithubDownloadMacOSUrl();

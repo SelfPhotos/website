@@ -16,45 +16,88 @@ import { useAppStore } from "@/stores/appStore";
 import { ref } from "vue";
 import {
   DISCORD_URL,
+  getDownloadAndroidUrl,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
 import { onWindowOpen } from "@/utils/common";
-import { LanguageKind } from "@/types/enums";
+import { LanguageKind, OsTypeKind } from "@/types/enums";
 
 const appStore = useAppStore();
 
 const isShowMirrorBtn = ref(false);
 
 const onDownloadClick = () => {
-  if (appStore.osType !== "Windows" && appStore.osType !== "MacOS") {
+  if (
+    appStore.osType !== OsTypeKind.Windows &&
+    appStore.osType !== OsTypeKind.MacOS &&
+    appStore.osType !== OsTypeKind.Android
+  ) {
     return;
   }
-  isShowMirrorBtn.value = true;
+  if (
+    appStore.osType === OsTypeKind.Windows ||
+    appStore.osType === OsTypeKind.MacOS
+  ) {
+    isShowMirrorBtn.value = true;
+  }
 
   let url = "";
-  if (appStore.language === "zh-CN" && appStore.osType === "Windows") {
+  if (
+    appStore.language === LanguageKind.zh &&
+    appStore.osType === OsTypeKind.Windows
+  ) {
     url = getTencentDownloadWindowsUrl();
-  } else if (appStore.language === "zh-CN" && appStore.osType === "MacOS") {
+  } else if (
+    appStore.language === LanguageKind.zh &&
+    appStore.osType === OsTypeKind.MacOS
+  ) {
     url = getTencentDownloadMacOSUrl();
-  } else if (appStore.language !== "zh-CN" && appStore.osType === "Windows") {
+  } else if (
+    appStore.language !== LanguageKind.zh &&
+    appStore.osType === OsTypeKind.Windows
+  ) {
     url = getGithubDownloadWindowsUrl();
-  } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
+  } else if (
+    appStore.language !== LanguageKind.zh &&
+    appStore.osType === OsTypeKind.MacOS
+  ) {
     url = getGithubDownloadMacOSUrl();
+  } else if (appStore.osType === OsTypeKind.Android) {
+    url = getDownloadAndroidUrl();
   }
   onWindowOpen(url);
 };
 const onMirrorDownloadClick = () => {
+  if (
+    appStore.osType !== OsTypeKind.Windows &&
+    appStore.osType !== OsTypeKind.MacOS
+  ) {
+    return;
+  }
+
   let url = "";
-  if (appStore.language === "zh-CN" && appStore.osType === "Windows") {
+  if (
+    appStore.language === LanguageKind.zh &&
+    appStore.osType === OsTypeKind.Windows
+  ) {
     url = getGithubDownloadWindowsUrl();
-  } else if (appStore.language === "zh-CN" && appStore.osType === "MacOS") {
+  } else if (
+    appStore.language === LanguageKind.zh &&
+    appStore.osType === OsTypeKind.MacOS
+  ) {
     url = getGithubDownloadMacOSUrl();
-  } else if (appStore.language !== "zh-CN" && appStore.osType === "Windows") {
+  } else if (
+    appStore.language !== LanguageKind.zh &&
+    appStore.osType === OsTypeKind.Windows
+  ) {
     url = getTencentDownloadWindowsUrl();
-  } else if (appStore.language !== "zh-CN" && appStore.osType === "MacOS") {
+  } else if (
+    appStore.language !== LanguageKind.zh &&
+    appStore.osType === OsTypeKind.MacOS
+  ) {
     url = getTencentDownloadMacOSUrl();
   }
   onWindowOpen(url);
@@ -80,7 +123,13 @@ const onMirrorDownloadClick = () => {
     }"
   >
     <div class="container mx-auto px-6 relative z-10">
-      <div class="flex flex-col lg:flex-row items-center gap-12">
+      <div
+        class=""
+        :class="[
+          appStore.language === LanguageKind.zh ? 'lg:flex-row' : '',
+          'flex flex-col items-center gap-12',
+        ]"
+      >
         <div class="flex-1 lg:flex-[2] text-center lg:text-left">
           <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
             <h1
@@ -98,6 +147,11 @@ const onMirrorDownloadClick = () => {
               class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
+                v-if="
+                  appStore.osType === OsTypeKind.Windows ||
+                  appStore.osType === OsTypeKind.MacOS ||
+                  appStore.osType === OsTypeKind.Android
+                "
                 class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center"
                 href="#"
                 @click.prevent="onDownloadClick"
@@ -135,6 +189,7 @@ const onMirrorDownloadClick = () => {
         </div>
         <div class="flex-1 flex flex-col justify-center lg:justify-end gap-4">
           <div
+            v-show="appStore.language === LanguageKind.zh"
             class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl text-center"
           >
             <h3 class="text-xl font-semibold text-gray-800 mb-4">
@@ -153,7 +208,7 @@ const onMirrorDownloadClick = () => {
           </div>
           <a
             v-show="appStore.language === LanguageKind.en"
-            class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center justify-center"
+            class="bg-blue-600 text-white px-32 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap flex items-center justify-center"
             href="#"
             @click.prevent="onWindowOpen(DISCORD_URL)"
           >

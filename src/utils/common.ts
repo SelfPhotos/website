@@ -84,7 +84,7 @@ export function setTitle(path: string, language: string) {
       }
       break;
     default:
-      if (language === "zh-CN") {
+      if (language === LanguageKind.zh) {
         document.title = "爱看相册";
       } else {
         document.title = "Self Photos";
