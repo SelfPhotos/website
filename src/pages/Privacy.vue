@@ -1,34 +1,40 @@
+<script setup lang="ts">
+import { useAppStore } from "@/stores/appStore";
+
+const appStore = useAppStore();
+</script>
+
 <template>
-  <div class="d-flex justify-center px-16" style="padding-top: 40px">
-    <div style="max-width: 1296px; width: 100%">
-      <div class="text-h4">{{ $t("message.about.privacy.title") }}</div>
-      <br />
-      <div class="text-body-1">
-        {{ $t("message.about.privacy.subtitle") }}
+  <div>
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+          {{ $t("message.router.privacy") }}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto text-left">
+          {{ $t("message.privacy.tip") }}
+        </p>
       </div>
-      <br />
-      <div v-for="item in arrLength" :key="item">
-        <div class="text-title-1 font-weight-bold">
-          {{ item }}. {{ $t(`message.about.privacy.arr.${item}.title`) }}
+    </section>
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto prose prose-lg">
+          <div class="bg-gray-50 rounded-2xl p-8 space-y-12">
+            <div v-for="item in appStore.totalPrivacysCount" :key="item">
+              <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                {{ item }}. {{ $t(`message.privacys.${item}.title`) }}
+              </h2>
+              <div class="space-y-4 text-gray-600">
+                <p>
+                  {{ $t(`message.privacys.${item}.content`) }}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <p
-          class="text-body-1"
-          v-html="
-            $t(`message.about.privacy.arr.${item}.content`, {
-              discord: discordUrl,
-            })
-          "
-        />
-        <br />
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
-<script setup lang="ts">
-import { DISCORD_URL } from "@/config/url";
-import { ref } from "vue";
-
-const arrLength = ref(7);
-const discordUrl = ref(DISCORD_URL);
-</script>
+<style scoped></style>

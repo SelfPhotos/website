@@ -1,181 +1,4 @@
-<template>
-  <div
-    class="d-flex justify-center px-16"
-    style="height: calc(100vh - 64px); min-height: 500px"
-  >
-    <div
-      class="d-flex flex-column align-center justify-center pb-16"
-      style="max-width: 1296px; width: 100%; height: 100%; margin: 0"
-    >
-      <div style="margin-bottom: 100px">
-        <div class="text-h2 font-weight-bold mb-10">
-          {{ $t("message.Download") }}
-          {{ appStore.language === "zh-CN" ? "爱看相册" : "Self Photos" }}
-        </div>
-      </div>
-      <div class="w-100 d-flex justify-space-between flex-wrap ga-2">
-        <div
-          class="d-flex flex-column align-center justify-center"
-          style="
-            width: 178px;
-            height: 178px;
-            background: #fff;
-            box-shadow: 0px 3px 6px -6px rgba(20, 86, 240, 0.14),
-              0px 4px 8px rgba(20, 86, 240, 0.06),
-              0px 6px 18px 6px rgba(20, 86, 240, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <div
-            class="mb-4 cursor-pointer d-flex align-center justify-center os-box"
-            style="width: 60px; height: 60px"
-          >
-            <img
-              class="os-logo"
-              src="@/assets/logo/windows.png"
-              width="60"
-              height="60"
-            />
-            <span
-              class="material-symbols-outlined os-download"
-              style="font-size: 40px"
-              @click="onWindowsDownloadClick"
-            >
-              download
-            </span>
-          </div>
-          <span style="font-size: 14px; font-weight: 500"> Windows </span>
-          <span style="font-size: 12px">Windows 10 , 11</span>
-        </div>
-        <div
-          class="d-flex flex-column align-center justify-center"
-          style="
-            width: 178px;
-            height: 178px;
-            background: #fff;
-            box-shadow: 0px 3px 6px -6px rgba(20, 86, 240, 0.14),
-              0px 4px 8px rgba(20, 86, 240, 0.06),
-              0px 6px 18px 6px rgba(20, 86, 240, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <div
-            class="mb-4 cursor-pointer d-flex align-center justify-center os-box"
-            style="width: 60px; height: 60px"
-          >
-            <img
-              class="os-logo"
-              src="@/assets/logo/mac.png"
-              width="60"
-              height="60"
-            />
-            <span
-              class="material-symbols-outlined os-download"
-              style="font-size: 40px"
-              @click="onMacOSDownloadClick"
-            >
-              download
-            </span>
-          </div>
-          <span style="font-size: 14px; font-weight: 500"> MacOS </span>
-          <span style="font-size: 12px">
-            {{ $t("message.download.AppleSilicon") }}
-          </span>
-        </div>
-        <div
-          class="d-flex flex-column align-center justify-center"
-          style="
-            width: 178px;
-            height: 178px;
-            background: #fff;
-            box-shadow: 0px 3px 6px -6px rgba(20, 86, 240, 0.14),
-              0px 4px 8px rgba(20, 86, 240, 0.06),
-              0px 6px 18px 6px rgba(20, 86, 240, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <div
-            class="mb-4 d-flex align-center justify-center"
-            style="width: 60px; height: 60px"
-          >
-            <img src="@/assets/logo/ios.png" width="60" height="60" />
-          </div>
-          <span style="font-size: 14px; font-weight: 500"> iOS & iPad </span>
-          <span style="font-size: 12px">{{
-            $t("message.download.comingSoon")
-          }}</span>
-        </div>
-        <div
-          class="d-flex flex-column align-center justify-center"
-          style="
-            width: 178px;
-            height: 178px;
-            background: #fff;
-            box-shadow: 0px 3px 6px -6px rgba(20, 86, 240, 0.14),
-              0px 4px 8px rgba(20, 86, 240, 0.06),
-              0px 6px 18px 6px rgba(20, 86, 240, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <v-badge content="new" color="error">
-            <div
-              class="mb-4 cursor-pointer d-flex align-center justify-center os-box"
-              style="width: 60px; height: 60px"
-            >
-              <img
-                class="os-logo"
-                src="@/assets/logo/android.png"
-                width="60"
-                height="60"
-              />
-              <span
-                class="material-symbols-outlined os-download"
-                style="font-size: 40px"
-                @click="onAndroidDownloadClick"
-              >
-                download
-              </span>
-            </div>
-          </v-badge>
-          <span style="font-size: 14px; font-weight: 500">Android </span>
-          <span style="font-size: 12px">{{
-            $t("message.download.latest")
-          }}</span>
-        </div>
-        <div
-          class="d-flex flex-column align-center justify-center"
-          style="
-            width: 178px;
-            height: 178px;
-            background: #fff;
-            box-shadow: 0px 3px 6px -6px rgba(20, 86, 240, 0.14),
-              0px 4px 8px rgba(20, 86, 240, 0.06),
-              0px 6px 18px 6px rgba(20, 86, 240, 0.04);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <div
-            class="mb-4 d-flex align-center justify-center"
-            style="width: 60px; height: 60px"
-          >
-            <img src="@/assets/logo/linux.png" width="60" height="60" />
-          </div>
-          <span style="font-size: 14px; font-weight: 500">Linux </span>
-          <span style="font-size: 12px">{{
-            $t("message.download.comingSoon")
-          }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script lang="ts" setup>
+<script setup lang="ts">
 import {
   getDownloadAndroidUrl,
   getGithubDownloadMacOSUrl,
@@ -183,10 +6,12 @@ import {
   getTencentDownloadMacOSUrl,
   getTencentDownloadWindowsUrl,
 } from "@/config/url";
-import { useAppStore } from "@/store/appStore";
+import { useAppStore } from "@/stores/appStore";
 import { onWindowOpen } from "@/utils/common";
+import { ArrowDownTrayIcon } from "@heroicons/vue/24/outline";
 
 const appStore = useAppStore();
+
 const onWindowsDownloadClick = () => {
   let url = "";
   if (appStore.language === "zh-CN") {
@@ -211,25 +36,147 @@ const onAndroidDownloadClick = () => {
 };
 </script>
 
-<style lang="scss">
-.os-box {
-  .os-logo {
-    opacity: 1;
-    display: block;
-  }
-  .os-download {
-    opacity: 0;
-    display: none;
-  }
-  &:hover {
-    .os-logo {
-      opacity: 0;
-      display: none;
-    }
-    .os-download {
-      opacity: 1;
-      display: block;
-    }
-  }
-}
-</style>
+<template>
+  <div>
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+          {{ $t("message.download.title") }}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+          {{ $t("message.download.subtitle") }}
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100"
+          >
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+              >
+                <img src="@/assets/images/logo/windows.svg" alt="Windows" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Windows</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>{{ $t("message.download.version") }}: v0.4.0</div>
+                <div>{{ $t("message.download.size") }}: 109.4 MB</div>
+                <div>{{ $t("message.download.windowsTip") }}</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl flex items-center justify-center"
+                @click="onWindowsDownloadClick"
+              >
+                <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
+                  $t("message.download.downloadButton")
+                }}
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100"
+          >
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+              >
+                <img src="@/assets/images/logo/mac.svg" alt="MacOS" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">MacOS</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>{{ $t("message.download.version") }}: v0.4.0</div>
+                <div>{{ $t("message.download.size") }}: 66 MB</div>
+                <div>{{ $t("message.download.macosTip") }}</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl flex items-center justify-center"
+                @click="onMacOSDownloadClick"
+              >
+                <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
+                  $t("message.download.downloadButton")
+                }}
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100"
+          >
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gray-100"
+              >
+                <img src="@/assets/images/logo/linux.svg" alt="Linux" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Linux</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>{{ $t("message.download.version") }}: --</div>
+                <div>{{ $t("message.download.size") }}: --</div>
+                <div>--</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-not-allowed bg-gray-100 text-gray-700"
+              >
+                {{ $t("message.download.comingSoon") }}
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative border-2 border-blue-500"
+          >
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap"
+              >
+                {{ $t("message.download.latest") }}
+              </span>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+              >
+                <img src="@/assets/images/logo/android.svg" alt="Android" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Android</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>{{ $t("message.download.version") }}: v0.1.0</div>
+                <div>{{ $t("message.download.size") }}: 4.9 MB</div>
+                <div>{{ $t("message.download.androidTip") }}</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl flex items-center justify-center"
+                @click="onAndroidDownloadClick"
+              >
+                <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
+                  $t("message.download.downloadButton")
+                }}
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100"
+          >
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gray-100"
+              >
+                <img src="@/assets/images/logo/ios.svg" alt="iOS" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>{{ $t("message.download.version") }}: --</div>
+                <div>{{ $t("message.download.size") }}: --</div>
+                <div>--</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-not-allowed bg-gray-100 text-gray-700"
+              >
+                {{ $t("message.download.comingSoon") }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<style scoped></style>

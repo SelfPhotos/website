@@ -1,19 +1,22 @@
-<template>
-  <v-app>
-    <v-main>
-      <Toolbar />
-      <router-view />
-      <Footer />
-    </v-main>
-  </v-app>
-</template>
-
-<script lang="ts" setup>
-import Toolbar from "@/layout/Toolbar.vue";
-import Footer from "@/layout/Footer.vue";
-import { useAppStore } from "@/store/appStore";
+<script setup lang="ts">
+import HeaderCom from "@/layout/HeaderCom.vue";
+import FooterCom from "@/layout/FooterCom.vue";
+import { useAppStore } from "@/stores/appStore";
+import { onMounted } from "vue";
 
 const appStore = useAppStore();
 
-appStore.init();
+onMounted(() => {
+  appStore.init();
+});
 </script>
+
+<template>
+  <div class="min-h-screen bg-white">
+    <header-com />
+    <router-view />
+    <footer-com />
+  </div>
+</template>
+
+<style scoped></style>

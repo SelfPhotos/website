@@ -1,4 +1,4 @@
-import { useAppStore } from "@/store/appStore";
+import { useAppStore } from "@/stores/appStore";
 import { setTitle } from "@/utils/common";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -8,12 +8,22 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("@/pages/index.vue"),
+      component: () => import("@/pages/Home.vue"),
     },
     {
       path: "/download",
       name: "download",
       component: () => import("@/pages/Download.vue"),
+    },
+    {
+      path: "/releases",
+      name: "releases",
+      component: () => import("@/pages/Releases.vue"),
+    },
+    {
+      path: "/faq",
+      name: "faq",
+      component: () => import("@/pages/Faq.vue"),
     },
     {
       path: "/terms",
