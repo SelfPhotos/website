@@ -28,6 +28,11 @@ export default {
       Rednote: "小红书",
     },
     home: {
+      scanTip: "扫描和索引您的电脑上的照片",
+      backupTip: "自动备份移动端相册到您的电脑",
+      viewTip: "按照时间轴或文件夹结构浏览照片",
+      googlePhotoTip: "在你的电脑和移动端本地有着Google Photo一样的体验",
+
       downloadInstaller: "下载 {platform} 安装包",
       learnMoreFeatures: "了解更多功能",
       mirror: "下载失败？试试备用链接",
@@ -35,6 +40,9 @@ export default {
       joinWechat: "关注爱看相册微信公众号",
       scanWechatTip: "扫码关注获取最新功能更新",
       section: {
+        platform: {
+          title: "原生多平台支持",
+        },
         video: {
           title: "观看视频了解",
           subtitle: "爱看相册的强大功能",

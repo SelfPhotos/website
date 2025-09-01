@@ -11,7 +11,6 @@ import {
 } from "@heroicons/vue/16/solid";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import bg1 from "@/assets/images/bg/bg-1.jpg";
 import { useAppStore } from "@/stores/appStore";
 import { ref } from "vue";
 import {
@@ -106,21 +105,7 @@ const onMirrorDownloadClick = () => {
 
 <template>
   <section
-    class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
-    style="
-      background-image: linear-gradient(
-          rgba(255, 255, 255, 0.1),
-          rgba(255, 255, 255, 0.1)
-        ),
-        url('@/assets/images/bg/bg-1.jpg');
-    "
-    :style="{
-      backgroundImage: `linear-gradient(
-          rgba(255, 255, 255, 0.1),
-          rgba(255, 255, 255, 0.1)
-        ),
-        url(${bg1})`,
-    }"
+    class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat pb-19"
   >
     <div class="container mx-auto px-6 relative z-10">
       <div
@@ -136,16 +121,30 @@ const onMirrorDownloadClick = () => {
               class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight"
             >
               {{ $t("message.app.name") }}
-              <span class="block text-3xl lg:text-4xl text-blue-600 mt-2">
-                {{ $t("message.app.slogan1") }}
-              </span>
             </h1>
-            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-              {{ $t("message.app.slogan2") }}
-            </p>
+            <ul class="list-disc mb-8 pl-8 space-y-1">
+              <li class="text-gray-600 leading-relaxed">
+                {{ $t("message.home.scanTip") }}
+              </li>
+              <li class="text-gray-600 leading-relaxed">
+                {{ $t("message.home.backupTip") }}
+              </li>
+              <li class="text-gray-600 leading-relaxed">
+                {{ $t("message.home.viewTip") }}
+              </li>
+              <li class="text-gray-600 leading-relaxed">
+                {{ $t("message.home.googlePhotoTip") }}
+              </li>
+            </ul>
             <div
-              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-end"
             >
+              <a
+                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap"
+                href="#features"
+              >
+                {{ $t("message.home.learnMoreFeatures") }}
+              </a>
               <a
                 v-if="
                   appStore.osType === OsTypeKind.Windows ||
@@ -164,10 +163,10 @@ const onMirrorDownloadClick = () => {
                 }}
               </a>
               <a
-                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer whitespace-nowrap"
-                href="#features"
+                class="text-sm text-gray-500 inline-block ml-2 mb-2"
+                href="/download"
               >
-                {{ $t("message.home.learnMoreFeatures") }}
+                {{ $t("message.home.otherPlatform") }}
               </a>
             </div>
             <div
@@ -180,9 +179,6 @@ const onMirrorDownloadClick = () => {
                 @click.prevent="onMirrorDownloadClick"
               >
                 {{ $t("message.home.mirror") }}
-              </a>
-              <a class="text-sm text-gray-500 inline-block" href="/download">
-                {{ $t("message.home.otherPlatform") }}
               </a>
             </div>
           </div>
@@ -219,6 +215,87 @@ const onMirrorDownloadClick = () => {
             />
             Join Our Discord
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          {{ $t("message.home.section.platform.title") }}
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+          >
+            <img
+              src="@/assets/images/logo/windows.svg"
+              alt="Windows"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Windows</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+          >
+            <img
+              src="@/assets/images/logo/mac.svg"
+              alt="MacOS"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">MacOS</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+          >
+            <img
+              src="@/assets/images/logo/linux_white.svg"
+              alt="Linux"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Linux</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+          >
+            <img
+              src="@/assets/images/logo/android.svg"
+              alt="Android"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Android</h3>
+        </div>
+        <div
+          class="bg-white rounded-2xl px-8 py-16 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+        >
+          <div
+            class="w-25 h-25 mx-auto mb-8 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600"
+          >
+            <img
+              src="@/assets/images/logo/ios_white.svg"
+              alt="iOS"
+              class="w-13 h-13"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
         </div>
       </div>
     </div>

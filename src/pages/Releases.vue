@@ -10,7 +10,22 @@ import {
   SparklesIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/vue/24/outline";
-import { CheckIcon } from "@heroicons/vue/16/solid";
+import { CalendarIcon } from "@heroicons/vue/16/solid";
+import { useAppStore } from "@/stores/appStore";
+
+const appStore = useAppStore();
+
+const formatDate = (dateStr: string) => {
+  // 把 "2025-08-29" 转成 Date
+  const date = new Date(dateStr);
+
+  // 使用 Intl.DateTimeFormat 来格式化
+  return new Intl.DateTimeFormat(appStore.language, {
+    year: "numeric",
+    month: "long", // 显示完整月份 (August / 八月)
+    day: "numeric",
+  }).format(date);
+};
 </script>
 
 <template>
@@ -24,7 +39,7 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
       </p>
     </div>
     <TabGroup>
-      <TabList class="flex justify-center mb-12">
+      <!-- <TabList class="flex justify-center mb-12">
         <div class="bg-gray-100 p-1 rounded-full">
           <Tab as="template" v-slot="{ selected }">
             <button
@@ -38,7 +53,7 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
               {{ $t("message.release.desktop.label") }}
             </button>
           </Tab>
-          <!-- <Tab as="template" v-slot="{ selected }">
+          <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
                 'px-6 py-3 rounded-full font-medium transition-all cursor-pointer whitespace-nowrap',
@@ -49,9 +64,9 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
             >
               {{ $t("message.release.android.label") }}
             </button>
-          </Tab> -->
+          </Tab>
         </div>
-      </TabList>
+      </TabList> -->
 
       <TabPanels class="mt-2">
         <TabPanel>
@@ -79,6 +94,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.4.0
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-08-29") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-6">
@@ -222,6 +245,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.3.2
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-07-15") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -255,6 +286,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.3.1
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-07-12") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-6">
@@ -382,6 +421,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.3.0
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-05-09") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-6">
@@ -485,6 +532,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.2.1
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-04-22") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -575,6 +630,14 @@ import { CheckIcon } from "@heroicons/vue/16/solid";
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.2.0
                     </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-04-11") }}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-6">

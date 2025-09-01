@@ -28,6 +28,12 @@ export default {
       Rednote: "Rednote",
     },
     home: {
+      scanTip: "Scan and index photos on your computer",
+      backupTip: "Automatically back up mobile albums to your computer",
+      viewTip: "Browse photos by timeline or folder structure",
+      googlePhotoTip:
+        "Google Photos experience, right on your computer and mobile locally",
+
       downloadInstaller: "Download {platform} Installer",
       learnMoreFeatures: "Learn more features",
       mirror: "Can't download? Try this mirror link",
@@ -36,6 +42,9 @@ export default {
       scanWechatTip:
         "Scan the QR code to follow and get the latest feature updates",
       section: {
+        platform: {
+          title: "Native Multi-Platform Support",
+        },
         video: {
           title: "Watch the video to learn about",
           subtitle: "The powerful functions of Self Photos",
