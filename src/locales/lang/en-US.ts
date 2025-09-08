@@ -273,6 +273,24 @@ export default {
       },
     },
     releases: {
+      "0_4_1": {
+        features: {},
+        optimizations: {
+          1: "If an external hard drive is temporarily inaccessible (e.g., unplugged), previously scanned photos will not be marked as deleted",
+          2: "After deleting photos to the system recycle bin from any screen, the page will not refresh automatically",
+          3: "Faster startup scanning tasks",
+          4: "The scan path settings page now supports concurrent operations, allowing multiple directories to expand smoothly without lag",
+          5: "Added manual download option on the app update page",
+          6: "Added draggable icons in the folder page pop-up menu",
+          7: "Temporarily hid the Archive feature, which will be reintroduced during the photo organization stage in the future",
+          8: "App name now supports multiple languages",
+        },
+        bugfixs: {
+          1: "Deduplicate paths when saving computer scan locations",
+          2: 'Fixed the issue where the "Folders" page would not auto-refresh',
+          3: "Fixed the issue where deleted files were not properly hidden during scanning",
+        },
+      },
       "0_4_0": {
         features: {
           1: "Support for backing up albums from the “Self Photos” app to the computer, with customizable backup directory, subdirectory rules, and file naming rules",

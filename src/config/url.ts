@@ -6,7 +6,7 @@ export const GITHUB_URL = "https://github.com/SelfPhotos/SelfPhotos";
 export const BILIBILI_URL = "https://space.bilibili.com/30280506";
 // export const REDDIT_URL = "https://www.reddit.com/r/Aicasa";
 
-export const DESKTOP_VERSION = "0.4.0";
+export const DESKTOP_VERSION = "0.4.1";
 export const ANDROID_VERSION = "0.1.0";
 export const getGithubDownloadWindowsUrl = () => {
   return `https://github.com/SelfPhotos/SelfPhotos/releases/download/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_x64.msi`;
