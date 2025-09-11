@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
                 v-if="appStore.language === LanguageKind.zh"
                 ref="iframeRef"
                 width="100%"
-                src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=114495338840193&bvid=BV1h179zAEpm&cid=29928132339&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
+                src="//www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&aid=115181359202344&bvid=BV1gyHdzjENf&cid=32298960916&p=1&autoplay=1&mute=1&loop=1&fjw=0&danmaku=0"
                 scrolling="no"
                 border="0"
                 frameborder="no"
