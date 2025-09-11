@@ -137,11 +137,8 @@ export default {
       6: {
         q: "How can I add new photos and videos from my local computer to the software?",
         a: `You can freely select folders to scan, and there are two scanning modes available:
-          <br /><br />
           Scan: Scans the folder once, and any future updates to the folder will not be indexed.
-          <br /><br />
           Excluded: Files in this folder will not be indexed.
-          <br /><br />
           You can mix and match these modes and adjust your scanning preferences at any time.`,
       },
       7: {
@@ -155,9 +152,7 @@ export default {
       9: {
         q: 'I like "Self Photos" so much. How can I contribute?',
         a: `You can participate in the following ways:
-          <br /><br />
           1. Join our Discord server to report bugs, or request features. We value your feedback and will actively consider it.
-          <br /><br />
           2. Share your honest reviews and experiences on Reddit, YouTube, Tiktok, etc.`,
       },
     },
@@ -183,10 +178,9 @@ export default {
       4: {
         title: "You agree not to:",
         content: `You agree not to:
-              <br />
-              <li>Use the App for unlawful purposes.</li>
-              <li>Distribute, sublicense, or sell the App.</li>
-              <li>Attempt to gain unauthorized access to any part of the App or interfere with its normal functioning.</li>`,
+              · Use the App for unlawful purposes.
+              · Distribute, sublicense, or sell the App.
+              · Attempt to gain unauthorized access to any part of the App or interfere with its normal functioning.`,
       },
       5: {
         title: "Privacy and Data Protection",

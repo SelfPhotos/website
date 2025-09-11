@@ -402,7 +402,10 @@ onBeforeUnmount(() => {
               </DisclosureButton>
               <DisclosurePanel class="px-8 pb-6">
                 <div class="bg-white rounded-xl p-6 shadow-sm">
-                  <p class="text-gray-600 leading-relaxed">
+                  <p
+                    class="text-gray-600 leading-relaxed"
+                    style="white-space: pre-line"
+                  >
                     {{ $t(`message.faqs.${item}.a`) }}
                   </p>
                 </div>

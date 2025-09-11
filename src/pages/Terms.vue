@@ -25,7 +25,7 @@ const appStore = useAppStore();
                 {{ item }}. {{ $t(`message.terms.${item}.title`) }}
               </h2>
               <div class="space-y-4 text-gray-600">
-                <p>
+                <p style="white-space: pre-line">
                   {{ $t(`message.terms.${item}.content`) }}
                 </p>
               </div>
