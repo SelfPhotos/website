@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {
+  ANDROID_VERSION,
+  DESKTOP_VERSION,
   getDownloadAndroidUrl,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
@@ -59,7 +61,9 @@ const onAndroidDownloadClick = () => {
               </div>
               <h3 class="text-2xl font-bold text-gray-800 mb-2">Windows</h3>
               <div class="text-sm text-gray-500 mb-6 space-y-1">
-                <div>{{ $t("message.download.version") }}: v0.4.0</div>
+                <div>
+                  {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
+                </div>
                 <div>{{ $t("message.download.size") }}: 109.4 MB</div>
                 <div>{{ $t("message.download.windowsTip") }}</div>
               </div>
@@ -84,7 +88,9 @@ const onAndroidDownloadClick = () => {
               </div>
               <h3 class="text-2xl font-bold text-gray-800 mb-2">MacOS</h3>
               <div class="text-sm text-gray-500 mb-6 space-y-1">
-                <div>{{ $t("message.download.version") }}: v0.4.0</div>
+                <div>
+                  {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
+                </div>
                 <div>{{ $t("message.download.size") }}: 66 MB</div>
                 <div>{{ $t("message.download.macosTip") }}</div>
               </div>
@@ -138,7 +144,9 @@ const onAndroidDownloadClick = () => {
               </div>
               <h3 class="text-2xl font-bold text-gray-800 mb-2">Android</h3>
               <div class="text-sm text-gray-500 mb-6 space-y-1">
-                <div>{{ $t("message.download.version") }}: v0.1.0</div>
+                <div>
+                  {{ $t("message.download.version") }}: v{{ ANDROID_VERSION }}
+                </div>
                 <div>{{ $t("message.download.size") }}: 4.9 MB</div>
                 <div>{{ $t("message.download.androidTip") }}</div>
               </div>
