@@ -172,7 +172,7 @@ onBeforeUnmount(() => {
                 v-else
                 ref="iframeRef"
                 width="100%"
-                src="https://www.youtube.com/embed/60HYwOIEV2g?autoplay=1&mute=1&loop=1&playlist=60HYwOIEV2g"
+                src="https://www.youtube.com/embed/E5cNWbYKUkc?autoplay=1&mute=1&loop=1&playlist=E5cNWbYKUkc"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
