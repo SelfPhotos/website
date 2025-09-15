@@ -64,7 +64,7 @@ const onAndroidDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 285 MB</div>
+                <div>{{ $t("message.download.size") }}: 286 MB</div>
                 <div>{{ $t("message.download.windowsTip") }}</div>
               </div>
               <button
@@ -91,7 +91,7 @@ const onAndroidDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 62.9 MB</div>
+                <div>{{ $t("message.download.size") }}: 63 MB</div>
                 <div>{{ $t("message.download.macosTip") }}</div>
               </div>
               <button

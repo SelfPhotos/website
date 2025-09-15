@@ -261,6 +261,17 @@ export default {
       },
     },
     releases: {
+      "0_4_2": {
+        features: {},
+        optimizations: {
+          1: "采用UTC而非本地时间作为照片主时间",
+          2: "设置面板增加关闭icon",
+        },
+        bugfixs: {
+          1: "修复导入过程中,文件夹页面无法跳转到其它页面的bug",
+          2: "如果照片长宽异常情况下，渲染逻辑卡住的问题",
+        },
+      },
       "0_4_1": {
         features: {},
         optimizations: {

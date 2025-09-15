@@ -267,6 +267,17 @@ export default {
       },
     },
     releases: {
+      "0_4_2": {
+        features: {},
+        optimizations: {
+          1: "UseUTC instead of local time as the primary photo timestamp",
+          2: "Added close icon in the settings panel",
+        },
+        bugfixs: {
+          1: "Fixed an issue where the folder page could not navigate to other pages during import",
+          2: "Fixed a rendering freeze when photo dimensions were abnormal",
+        },
+      },
       "0_4_1": {
         features: {},
         optimizations: {

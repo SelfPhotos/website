@@ -92,6 +92,83 @@ const formatDate = (dateStr: string) => {
                 >
                   <div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                      v0.4.2
+                    </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-09-15") }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <h4
+                    class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                  >
+                    <sparkles-icon class="text-purple-500 mr-2 w-5 h-5" />
+                    {{ $t("message.release.optimization") }}
+                  </h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.0_4_2.optimizations.1") }}
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.0_4_2.optimizations.2") }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                  >
+                    <wrench-screwdriver-icon
+                      class="text-blue-500 mr-2 w-5 h-5"
+                    />
+                    {{ $t("message.release.bugfix") }}
+                  </h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <check-circle-icon
+                        class="text-blue-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.0_4_2.bugfixs.1") }}
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <check-circle-icon
+                        class="text-blue-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.0_4_2.bugfixs.2") }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="p-8">
+                <div
+                  class="flex flex-col md:flex-row md:items-center md:justify-between mb-6"
+                >
+                  <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">
                       v0.4.1
                     </h3>
                     <div
