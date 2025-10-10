@@ -204,12 +204,6 @@ interface AppStore {
 
 ## External Configuration
 
-### Version Constants (src/config/url.ts)
-```typescript
-export const DESKTOP_VERSION = "0.4.2"
-export const ANDROID_VERSION = "0.1.0"
-```
-
 ### Social/External Links
 - GitHub: https://github.com/SelfPhotos/SelfPhotos
 - Discord: Community link

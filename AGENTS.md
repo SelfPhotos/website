@@ -337,15 +337,6 @@ const lang = appStore.language
 
 ## External Configuration
 
-### Version Constants
-
-**File**: `src/config/url.ts`
-
-```typescript
-export const DESKTOP_VERSION = "0.4.2"
-export const ANDROID_VERSION = "0.1.0"
-```
-
 ### External URLs
 
 - GitHub: `https://github.com/SelfPhotos/SelfPhotos`

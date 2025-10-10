@@ -149,8 +149,6 @@ npm run preview
 
 Defined in `src/config/url.ts`:
 - Discord, YouTube, X (Twitter), GitHub, Bilibili links
-- Desktop version: 0.4.2
-- Android version: 0.1.0
 - Download URLs (GitHub releases, Tencent Cloud CDN)
 
 ## Common Tasks for AI Assistance
