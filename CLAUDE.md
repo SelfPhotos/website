@@ -1,83 +1,83 @@
-# Claude AI 使用指南
+# Claude AI Usage Guide
 
-本文档提供在 Self Photos 项目开发中使用 Claude AI 的最佳实践和参考指南。
+This document provides best practices and reference guidelines for using Claude AI in the Self Photos project development.
 
-## 简介
+## Introduction
 
-Claude AI 是一个强大的 AI 助手，可以帮助开发者进行代码编写、问题排查、文档撰写等任务。
+Claude AI is a powerful AI assistant that can help developers with code writing, troubleshooting, documentation, and more.
 
-## 主要用途
+## Primary Uses
 
-### 1. 代码开发
+### 1. Code Development
 
-- **代码生成**: Claude 可以根据需求描述生成 Vue 3 组件、TypeScript 代码、样式等
-- **代码重构**: 帮助优化现有代码结构，提高代码质量
-- **Bug 修复**: 分析错误日志，提供解决方案
+- **Code Generation**: Claude can generate Vue 3 components, TypeScript code, styles, etc., based on requirements
+- **Code Refactoring**: Help optimize existing code structure and improve code quality
+- **Bug Fixing**: Analyze error logs and provide solutions
 
-### 2. 文档编写
+### 2. Documentation
 
-- **API 文档**: 为组件和函数生成详细的文档说明
-- **用户指南**: 编写清晰的使用说明和教程
-- **注释补充**: 为复杂逻辑添加易懂的代码注释
+- **API Documentation**: Generate detailed documentation for components and functions
+- **User Guides**: Write clear usage instructions and tutorials
+- **Code Comments**: Add understandable comments for complex logic
 
-### 3. 技术咨询
+### 3. Technical Consultation
 
-- **架构设计**: 讨论技术选型和架构方案
-- **最佳实践**: 获取 Vue 3、TypeScript、Vite 等技术的最佳实践建议
-- **性能优化**: 识别性能瓶颈并提供优化建议
+- **Architecture Design**: Discuss technology selection and architecture solutions
+- **Best Practices**: Get recommendations for Vue 3, TypeScript, Vite, and other technologies
+- **Performance Optimization**: Identify performance bottlenecks and provide optimization suggestions
 
-## 使用建议
+## Usage Recommendations
 
-### 提问技巧
+### Asking Techniques
 
-1. **明确上下文**: 提供足够的项目背景和代码上下文
-2. **清晰描述**: 准确描述需求或问题
-3. **提供示例**: 如有必要，提供期望的输入输出示例
+1. **Clear Context**: Provide sufficient project background and code context
+2. **Clear Description**: Accurately describe requirements or problems
+3. **Provide Examples**: If necessary, provide expected input/output examples
 
-### 代码审查
+### Code Review
 
-- 让 Claude 审查代码变更
-- 检查潜在的安全问题
-- 验证代码是否符合项目规范
+- Have Claude review code changes
+- Check for potential security issues
+- Verify code compliance with project standards
 
-### 学习辅助
+### Learning Assistance
 
-- 询问不熟悉的概念或技术
-- 请求代码示例和解释
-- 探讨不同实现方案的优劣
+- Ask about unfamiliar concepts or technologies
+- Request code examples and explanations
+- Explore pros and cons of different implementation approaches
 
-## 项目特定指南
+## Project-Specific Guidelines
 
-### Vue 3 组件开发
+### Vue 3 Component Development
 
 ```typescript
-// 使用 Composition API
-// 遵循项目现有的代码风格
-// 使用 TypeScript 类型定义
+// Use Composition API
+// Follow existing project code style
+// Use TypeScript type definitions
 ```
 
-### 国际化支持
+### Internationalization Support
 
-- 本项目支持中文(zh-CN)和英文(en-US)
-- 所有用户可见的文本需要使用 vue-i18n
-- 翻译文件位于 `src/locales/lang/`
+- This project supports Chinese (zh-CN) and English (en-US)
+- All user-visible text should use vue-i18n
+- Translation files are located in `src/locales/lang/`
 
-### 样式规范
+### Style Guidelines
 
-- 使用 Tailwind CSS 进行样式开发
-- 遵循响应式设计原则
-- 保持与现有 UI 风格一致
+- Use Tailwind CSS for styling
+- Follow responsive design principles
+- Maintain consistency with existing UI style
 
-## 注意事项
+## Important Notes
 
-1. **代码验证**: AI 生成的代码需要经过测试和验证
-2. **安全审查**: 不要将敏感信息（密钥、凭证等）提供给 AI
-3. **理解优先**: 理解 AI 提供的解决方案，不要盲目使用
-4. **持续学习**: 将 AI 作为学习工具，而不仅仅是代码生成器
+1. **Code Validation**: AI-generated code must be tested and validated
+2. **Security Review**: Do not provide sensitive information (keys, credentials, etc.) to AI
+3. **Understanding First**: Understand AI-provided solutions, don't use them blindly
+4. **Continuous Learning**: Use AI as a learning tool, not just a code generator
 
-## 相关资源
+## Related Resources
 
-- [Claude AI 官方文档](https://www.anthropic.com/claude)
-- [项目 README](./README.md)
-- [GitHub Copilot 使用指南](./COPILOT.md)
-- [AI Agents 使用指南](./AGENTS.md)
+- [Claude AI Official Documentation](https://www.anthropic.com/claude)
+- [Project README](./README.md)
+- [GitHub Copilot Usage Guide](./COPILOT.md)
+- [AI Agents Usage Guide](./AGENTS.md)

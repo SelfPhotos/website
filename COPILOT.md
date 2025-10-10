@@ -1,20 +1,20 @@
-# GitHub Copilot 使用指南
+# GitHub Copilot Usage Guide
 
-本文档介绍如何在 Self Photos 项目中有效使用 GitHub Copilot。
+This document explains how to effectively use GitHub Copilot in the Self Photos project.
 
-## 简介
+## Introduction
 
-GitHub Copilot 是一个 AI 编程助手，直接集成在代码编辑器中，可以实时提供代码建议和自动补全。
+GitHub Copilot is an AI programming assistant that integrates directly into your code editor, providing real-time code suggestions and auto-completion.
 
-## 配置
+## Configuration
 
-### VS Code 设置
+### VS Code Setup
 
-1. 安装 GitHub Copilot 扩展
-2. 登录 GitHub 账户
-3. 根据需要调整 Copilot 设置
+1. Install the GitHub Copilot extension
+2. Sign in to your GitHub account
+3. Adjust Copilot settings as needed
 
-### 推荐配置
+### Recommended Configuration
 
 ```json
 {
@@ -28,131 +28,131 @@ GitHub Copilot 是一个 AI 编程助手，直接集成在代码编辑器中，�
 }
 ```
 
-## 功能特性
+## Features
 
-### 1. 代码自动补全
+### 1. Code Auto-Completion
 
-- **行内建议**: 在输入时实时提供代码建议
-- **多行补全**: 根据上下文生成完整的函数或组件
-- **智能识别**: 理解项目结构和编码风格
+- **Inline Suggestions**: Real-time code suggestions as you type
+- **Multi-line Completion**: Generate complete functions or components based on context
+- **Smart Recognition**: Understand project structure and coding style
 
-### 2. 注释转代码
+### 2. Comment to Code
 
-通过编写清晰的注释，Copilot 可以生成相应的实现代码：
+By writing clear comments, Copilot can generate corresponding implementation code:
 
 ```typescript
-// 创建一个格式化日期的函数，接收 ISO 字符串，返回 YYYY-MM-DD 格式
-// Copilot 会根据注释生成对应的函数实现
+// Create a date formatting function that receives an ISO string and returns YYYY-MM-DD format
+// Copilot will generate the corresponding function implementation based on the comment
 ```
 
-### 3. 测试用例生成
+### 3. Test Case Generation
 
-- 为现有函数生成单元测试
-- 创建边界条件测试
-- 生成集成测试场景
+- Generate unit tests for existing functions
+- Create boundary condition tests
+- Generate integration test scenarios
 
-## 最佳实践
+## Best Practices
 
-### 编写有效的提示
+### Writing Effective Prompts
 
-1. **使用描述性注释**: 清晰说明期望的功能
-2. **提供类型信息**: 在 TypeScript 中定义明确的类型
-3. **遵循命名规范**: 使用有意义的变量和函数名
+1. **Use Descriptive Comments**: Clearly explain the expected functionality
+2. **Provide Type Information**: Define explicit types in TypeScript
+3. **Follow Naming Conventions**: Use meaningful variable and function names
 
-### 代码审查
+### Code Review
 
-- 始终审查 Copilot 生成的代码
-- 确保代码符合项目规范
-- 验证代码的正确性和安全性
+- Always review Copilot-generated code
+- Ensure code complies with project standards
+- Verify code correctness and security
 
-### 提高效率
+### Improving Efficiency
 
-1. **快捷键使用**:
-   - `Tab`: 接受建议
-   - `Esc`: 拒绝建议
-   - `Alt + ]`: 下一个建议
-   - `Alt + [`: 上一个建议
+1. **Keyboard Shortcuts**:
+   - `Tab`: Accept suggestion
+   - `Esc`: Reject suggestion
+   - `Alt + ]`: Next suggestion
+   - `Alt + [`: Previous suggestion
 
-2. **上下文优化**:
-   - 保持相关文件在编辑器中打开
-   - 使用描述性的变量名
-   - 编写清晰的函数签名
+2. **Context Optimization**:
+   - Keep related files open in the editor
+   - Use descriptive variable names
+   - Write clear function signatures
 
-## 项目特定应用
+## Project-Specific Applications
 
-### Vue 3 组件开发
+### Vue 3 Component Development
 
-Copilot 可以帮助快速生成：
-- 组件模板结构
-- Composition API 逻辑
-- Props 和 Emits 定义
-- 响应式状态管理
+Copilot can help quickly generate:
+- Component template structure
+- Composition API logic
+- Props and Emits definitions
+- Reactive state management
 
-### TypeScript 开发
+### TypeScript Development
 
-- 自动生成类型定义
-- 接口和类型守卫
-- 泛型函数实现
+- Auto-generate type definitions
+- Interfaces and type guards
+- Generic function implementations
 
-### 样式开发
+### Style Development
 
-- Tailwind CSS 类名建议
-- 响应式设计代码
-- 动画和过渡效果
+- Tailwind CSS class suggestions
+- Responsive design code
+- Animation and transition effects
 
-## 常见场景
+## Common Scenarios
 
-### 1. 创建新组件
+### 1. Creating New Components
 
 ```vue
-<!-- 输入组件基础结构，Copilot 会提供完整的模板、脚本和样式建议 -->
+<!-- Type component basic structure, Copilot will provide complete template, script, and style suggestions -->
 <script setup lang="ts">
-// Copilot 会根据组件名称和用途建议相应的导入和逻辑
+// Copilot will suggest appropriate imports and logic based on component name and purpose
 </script>
 ```
 
-### 2. API 集成
+### 2. API Integration
 
 ```typescript
-// Copilot 可以帮助生成 API 调用、错误处理和数据转换代码
+// Copilot can help generate API calls, error handling, and data transformation code
 ```
 
-### 3. 国际化支持
+### 3. Internationalization Support
 
 ```typescript
-// Copilot 识别项目的 i18n 结构，建议正确的翻译键
+// Copilot recognizes the project's i18n structure and suggests correct translation keys
 ```
 
-## 注意事项
+## Important Notes
 
-1. **代码质量**: 不要完全依赖 Copilot，保持代码审查习惯
-2. **安全性**: 避免在代码中暴露敏感信息
-3. **许可证**: 了解 Copilot 生成代码的许可证含义
-4. **隐私**: 注意 Copilot 会将代码片段发送到服务器进行分析
+1. **Code Quality**: Don't completely rely on Copilot, maintain code review habits
+2. **Security**: Avoid exposing sensitive information in code
+3. **License**: Understand the license implications of Copilot-generated code
+4. **Privacy**: Note that Copilot sends code snippets to servers for analysis
 
-## 性能优化建议
+## Performance Optimization Tips
 
-- 关闭不需要的语言支持以提高响应速度
-- 定期更新 Copilot 扩展
-- 在大型文件中适当限制建议范围
+- Disable unnecessary language support to improve response speed
+- Regularly update the Copilot extension
+- Appropriately limit suggestion scope in large files
 
-## 故障排查
+## Troubleshooting
 
-### Copilot 无响应
+### Copilot Not Responding
 
-1. 检查网络连接
-2. 重启 VS Code
-3. 重新登录 GitHub 账户
+1. Check network connection
+2. Restart VS Code
+3. Re-login to GitHub account
 
-### 建议质量不佳
+### Poor Suggestion Quality
 
-1. 提供更多上下文
-2. 使用更清晰的命名
-3. 添加描述性注释
+1. Provide more context
+2. Use clearer naming
+3. Add descriptive comments
 
-## 相关资源
+## Related Resources
 
-- [GitHub Copilot 官方文档](https://docs.github.com/en/copilot)
-- [VS Code Copilot 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-- [Claude AI 使用指南](./CLAUDE.md)
-- [AI Agents 使用指南](./AGENTS.md)
+- [GitHub Copilot Official Documentation](https://docs.github.com/en/copilot)
+- [VS Code Copilot Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [Claude AI Usage Guide](./CLAUDE.md)
+- [AI Agents Usage Guide](./AGENTS.md)

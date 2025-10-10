@@ -1,71 +1,71 @@
-# AI Agents 使用指南
+# AI Agents Usage Guide
 
-本文档介绍如何在 Self Photos 项目中使用各种 AI Agents 进行开发和维护。
+This document explains how to use various AI Agents for development and maintenance in the Self Photos project.
 
-## 简介
+## Introduction
 
-AI Agents 是能够自主执行任务的智能系统，可以帮助自动化开发流程中的各种任务。
+AI Agents are intelligent systems capable of autonomously executing tasks, helping to automate various tasks in the development process.
 
-## AI Agents 类型
+## AI Agent Types
 
-### 1. 代码审查 Agent
+### 1. Code Review Agent
 
-**功能**:
-- 自动审查 Pull Request
-- 检测代码质量问题
-- 提供改进建议
-- 确保符合代码规范
+**Features**:
+- Automatically review Pull Requests
+- Detect code quality issues
+- Provide improvement suggestions
+- Ensure compliance with code standards
 
-**使用场景**:
-- PR 提交后自动触发
-- 识别潜在的 bug
-- 检查代码风格一致性
+**Use Cases**:
+- Automatically triggered after PR submission
+- Identify potential bugs
+- Check code style consistency
 
-### 2. 文档生成 Agent
+### 2. Documentation Generation Agent
 
-**功能**:
-- 自动生成 API 文档
-- 更新 README 文件
-- 生成变更日志
-- 维护技术文档
+**Features**:
+- Automatically generate API documentation
+- Update README files
+- Generate changelogs
+- Maintain technical documentation
 
-**使用场景**:
-- 新功能开发完成后
-- 版本发布前
-- API 接口变更时
+**Use Cases**:
+- After new feature development
+- Before version releases
+- When API interfaces change
 
-### 3. 测试 Agent
+### 3. Testing Agent
 
-**功能**:
-- 生成单元测试
-- 执行回归测试
-- 性能测试分析
-- 测试覆盖率报告
+**Features**:
+- Generate unit tests
+- Execute regression tests
+- Performance test analysis
+- Test coverage reports
 
-**使用场景**:
-- 持续集成流程
-- 重构代码时
-- 添加新功能时
+**Use Cases**:
+- Continuous integration workflows
+- During code refactoring
+- When adding new features
 
-### 4. 部署 Agent
+### 4. Deployment Agent
 
-**功能**:
-- 自动化构建流程
-- 部署到生产环境
-- 回滚管理
-- 健康检查
+**Features**:
+- Automate build process
+- Deploy to production environment
+- Rollback management
+- Health checks
 
-**使用场景**:
-- 版本发布
-- 热修复部署
-- 环境配置更新
+**Use Cases**:
+- Version releases
+- Hotfix deployments
+- Environment configuration updates
 
-## 配置指南
+## Configuration Guide
 
-### GitHub Actions 集成
+### GitHub Actions Integration
 
 ```yaml
-# .github/workflows/ai-agent.yml 示例
+# .github/workflows/ai-agent.yml example
 name: AI Agent Workflow
 
 on:
@@ -78,109 +78,109 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: AI Code Review
-        # 配置代码审查 Agent
+        # Configure code review agent
 ```
 
-### 本地开发环境
+### Local Development Environment
 
-1. 安装必要的工具和依赖
-2. 配置 Agent 访问权限
-3. 设置环境变量
+1. Install necessary tools and dependencies
+2. Configure Agent access permissions
+3. Set environment variables
 
-## 项目特定应用
+## Project-Specific Applications
 
-### Vue 3 项目 Agent
+### Vue 3 Project Agents
 
-**组件分析 Agent**:
-- 分析组件复杂度
-- 识别可复用的代码片段
-- 建议组件拆分方案
+**Component Analysis Agent**:
+- Analyze component complexity
+- Identify reusable code snippets
+- Suggest component splitting strategies
 
-**性能监控 Agent**:
-- 监控构建时间
-- 分析包大小
-- 优化建议
+**Performance Monitoring Agent**:
+- Monitor build time
+- Analyze bundle size
+- Provide optimization suggestions
 
-### 国际化 Agent
+### Internationalization Agent
 
-**翻译管理 Agent**:
-- 检测缺失的翻译
-- 验证翻译文件完整性
-- 建议翻译改进
+**Translation Management Agent**:
+- Detect missing translations
+- Validate translation file completeness
+- Suggest translation improvements
 
-**自动翻译 Agent**:
-- 自动生成翻译建议
-- 保持术语一致性
-- 更新翻译文件
+**Auto-Translation Agent**:
+- Automatically generate translation suggestions
+- Maintain terminology consistency
+- Update translation files
 
-## 最佳实践
+## Best Practices
 
-### 1. Agent 选择
+### 1. Agent Selection
 
-- 根据任务类型选择合适的 Agent
-- 评估 Agent 的可靠性和准确性
-- 定期更新 Agent 配置
+- Choose appropriate Agents based on task type
+- Evaluate Agent reliability and accuracy
+- Regularly update Agent configurations
 
-### 2. 监控和反馈
+### 2. Monitoring and Feedback
 
-- 定期检查 Agent 执行结果
-- 收集团队反馈
-- 持续优化 Agent 配置
+- Regularly check Agent execution results
+- Collect team feedback
+- Continuously optimize Agent configurations
 
-### 3. 安全性
+### 3. Security
 
-- 限制 Agent 的访问权限
-- 使用安全的凭证管理
-- 定期审计 Agent 活动
+- Limit Agent access permissions
+- Use secure credential management
+- Regularly audit Agent activities
 
-### 4. 效率优化
+### 4. Efficiency Optimization
 
-- 合理设置 Agent 触发条件
-- 避免重复执行
-- 优化 Agent 执行时间
+- Set appropriate Agent trigger conditions
+- Avoid duplicate executions
+- Optimize Agent execution time
 
-## 常见 Agent 工作流
+## Common Agent Workflows
 
-### Pull Request 流程
+### Pull Request Workflow
 
-1. **代码提交**: 开发者创建 PR
-2. **自动检查**: CI/CD Agent 运行测试
-3. **代码审查**: 代码审查 Agent 分析代码
-4. **文档更新**: 文档 Agent 检查文档完整性
-5. **批准合并**: 人工审查后合并
+1. **Code Submission**: Developer creates PR
+2. **Automated Checks**: CI/CD Agent runs tests
+3. **Code Review**: Code review Agent analyzes code
+4. **Documentation Update**: Documentation Agent checks documentation completeness
+5. **Approval and Merge**: Manual review followed by merge
 
-### 发布流程
+### Release Workflow
 
-1. **版本准备**: 版本管理 Agent 准备发布
-2. **文档生成**: 自动生成更新日志
-3. **构建测试**: 构建 Agent 打包应用
-4. **部署验证**: 部署 Agent 发布到生产环境
-5. **监控报告**: 监控 Agent 跟踪应用健康
+1. **Version Preparation**: Version management Agent prepares release
+2. **Documentation Generation**: Automatically generate changelogs
+3. **Build and Test**: Build Agent packages application
+4. **Deployment Validation**: Deployment Agent releases to production
+5. **Monitoring Report**: Monitoring Agent tracks application health
 
-## 故障排查
+## Troubleshooting
 
-### Agent 执行失败
+### Agent Execution Failure
 
-1. 检查日志输出
-2. 验证配置正确性
-3. 确认权限设置
-4. 测试网络连接
+1. Check log output
+2. Verify configuration correctness
+3. Confirm permission settings
+4. Test network connectivity
 
-### Agent 结果不准确
+### Inaccurate Agent Results
 
-1. 更新 Agent 配置
-2. 提供更多上下文
-3. 调整参数设置
-4. 考虑使用其他 Agent
+1. Update Agent configuration
+2. Provide more context
+3. Adjust parameter settings
+4. Consider using alternative Agents
 
-## 高级功能
+## Advanced Features
 
-### 自定义 Agent
+### Custom Agents
 
-开发自定义 Agent 以满足项目特定需求：
+Develop custom Agents to meet project-specific needs:
 
 ```typescript
-// 示例：自定义国际化检查 Agent
+// Example: Custom internationalization check Agent
 interface I18nCheckAgent {
   checkMissingTranslations(): Promise<string[]>;
   validateTranslationFiles(): Promise<boolean>;
@@ -188,45 +188,45 @@ interface I18nCheckAgent {
 }
 ```
 
-### Agent 编排
+### Agent Orchestration
 
-组合多个 Agent 创建复杂的工作流：
+Combine multiple Agents to create complex workflows:
 
-1. 代码检查 → 测试执行 → 文档生成 → 部署
-2. 串行执行保证每步成功
-3. 并行执行提高效率
+1. Code check → Test execution → Documentation generation → Deployment
+2. Serial execution ensures each step succeeds
+3. Parallel execution improves efficiency
 
-## 性能考量
+## Performance Considerations
 
-- **资源使用**: 监控 Agent 的 CPU 和内存使用
-- **执行时间**: 优化 Agent 运行时间
-- **成本控制**: 合理使用付费 Agent 服务
+- **Resource Usage**: Monitor Agent CPU and memory usage
+- **Execution Time**: Optimize Agent runtime
+- **Cost Control**: Reasonably use paid Agent services
 
-## 隐私和合规
+## Privacy and Compliance
 
-1. **数据处理**: 了解 Agent 如何处理代码和数据
-2. **合规要求**: 确保符合数据保护法规
-3. **审计日志**: 保留 Agent 活动记录
+1. **Data Processing**: Understand how Agents process code and data
+2. **Compliance Requirements**: Ensure compliance with data protection regulations
+3. **Audit Logs**: Maintain Agent activity records
 
-## 未来展望
+## Future Outlook
 
-- 更智能的代码生成
-- 自适应测试策略
-- 预测性维护
-- 自动化问题修复
+- Smarter code generation
+- Adaptive testing strategies
+- Predictive maintenance
+- Automated problem fixing
 
-## 相关资源
+## Related Resources
 
-- [GitHub Actions 文档](https://docs.github.com/en/actions)
-- [CI/CD 最佳实践](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
-- [Claude AI 使用指南](./CLAUDE.md)
-- [GitHub Copilot 使用指南](./COPILOT.md)
-- [项目 README](./README.md)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [CI/CD Best Practices](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
+- [Claude AI Usage Guide](./CLAUDE.md)
+- [GitHub Copilot Usage Guide](./COPILOT.md)
+- [Project README](./README.md)
 
-## 贡献指南
+## Contribution Guidelines
 
-欢迎为本文档贡献内容：
-- 分享使用经验
-- 补充最佳实践
-- 报告问题和建议
-- 更新工具和技术信息
+Welcome to contribute to this documentation:
+- Share usage experiences
+- Supplement best practices
+- Report issues and suggestions
+- Update tool and technical information
