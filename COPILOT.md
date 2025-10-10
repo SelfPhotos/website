@@ -1,158 +1,275 @@
-# GitHub Copilot Usage Guide
+# Self Photos Website - Repository Context for GitHub Copilot
 
-This document explains how to effectively use GitHub Copilot in the Self Photos project.
+This document helps GitHub Copilot understand the Self Photos website codebase and provide better code suggestions.
 
-## Introduction
+## Quick Project Summary
 
-GitHub Copilot is an AI programming assistant that integrates directly into your code editor, providing real-time code suggestions and auto-completion.
+**What**: Marketing website for Self Photos (self-hosted photo management software)  
+**Stack**: Vue 3 + TypeScript + Vite + Tailwind CSS  
+**Language**: Bilingual (Chinese/English) using vue-i18n  
+**Lines of Code**: ~2,584 in src/
 
-## Configuration
+## Architecture Overview
 
-### VS Code Setup
+### Frontend Framework
+- **Vue 3.5.18** with Composition API (`<script setup>`)
+- **TypeScript 5.8.0** with strict type checking
+- **Vite 7.0.6** for build and dev server
+- **Tailwind CSS 4.1.12** for styling
 
-1. Install the GitHub Copilot extension
-2. Sign in to your GitHub account
-3. Adjust Copilot settings as needed
+### Project Structure
+```
+src/
+├── main.ts              # App entry, registers plugins (Pinia, Router, i18n)
+├── App.vue              # Root component
+├── router/index.ts      # Vue Router config (6 routes)
+├── stores/appStore.ts   # Pinia store for global state
+├── locales/             # i18n (zh-CN, en-US)
+├── pages/               # Route components (Home, Download, FAQ, etc.)
+├── layout/              # HeaderCom, FooterCom
+├── config/url.ts        # External URLs and version constants
+└── utils/common.ts      # Shared utilities
+```
 
-### Recommended Configuration
+## Code Patterns & Conventions
 
-```json
-{
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "markdown": true,
-    "vue": true,
-    "typescript": true
+### Vue Component Pattern
+```typescript
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useAppStore } from '@/stores/appStore'
+
+// Use Composition API
+const appStore = useAppStore()
+const someState = ref('')
+
+onMounted(() => {
+  // Initialization
+})
+</script>
+
+<template>
+  <!-- Tailwind CSS classes -->
+  <div class="container mx-auto px-6">
+    <!-- Use i18n for text -->
+    <h1>{{ $t('message.key') }}</h1>
+  </div>
+</template>
+```
+
+### TypeScript Usage
+- All `.vue` files use `lang="ts"` in script tags
+- Props defined with TypeScript interfaces
+- Strict null checks enabled
+- Import path alias: `@/` → `src/`
+
+### Styling Conventions
+- **Tailwind CSS only** - no custom CSS files (except `style.css` for globals)
+- Responsive breakpoints: `sm:`, `md:`, `lg:`
+- Common classes: `container mx-auto px-6` for layout
+- Custom font: `font-['Pacifico']` for branding
+
+### Internationalization Pattern
+```typescript
+// In template
+{{ $t('message.app.name') }}
+
+// In script (use i18n composable if needed)
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+```
+
+Translation structure in `locales/lang/*.ts`:
+```typescript
+export default {
+  message: {
+    app: { name: "..." },
+    router: { ... },
+    home: { ... },
+    // ... etc
   }
 }
 ```
 
-## Features
+## Common Code Snippets
 
-### 1. Code Auto-Completion
-
-- **Inline Suggestions**: Real-time code suggestions as you type
-- **Multi-line Completion**: Generate complete functions or components based on context
-- **Smart Recognition**: Understand project structure and coding style
-
-### 2. Comment to Code
-
-By writing clear comments, Copilot can generate corresponding implementation code:
-
+### Pinia Store Access
 ```typescript
-// Create a date formatting function that receives an ISO string and returns YYYY-MM-DD format
-// Copilot will generate the corresponding function implementation based on the comment
+import { useAppStore } from '@/stores/appStore'
+const appStore = useAppStore()
+const language = appStore.language
 ```
 
-### 3. Test Case Generation
+### Router Navigation
+```typescript
+import { useRouter } from 'vue-router'
+const router = useRouter()
+router.push('/download')
+```
 
-- Generate unit tests for existing functions
-- Create boundary condition tests
-- Generate integration test scenarios
+### External Link Handling
+```typescript
+import { onWindowOpen } from '@/utils/common'
+import { GITHUB_URL } from '@/config/url'
 
-## Best Practices
+// In template
+@click.prevent="onWindowOpen(GITHUB_URL)"
+```
 
-### Writing Effective Prompts
+### Headless UI Components
+```typescript
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+// Used for accessible dropdowns, modals, etc.
+```
 
-1. **Use Descriptive Comments**: Clearly explain the expected functionality
-2. **Provide Type Information**: Define explicit types in TypeScript
-3. **Follow Naming Conventions**: Use meaningful variable and function names
+## File Naming & Organization
 
-### Code Review
+### Components
+- **PascalCase**: `HeaderCom.vue`, `FooterCom.vue`
+- **Suffix "Com"**: Used for layout components
+- **Pages**: `Home.vue`, `Download.vue` (no suffix)
 
-- Always review Copilot-generated code
-- Ensure code complies with project standards
-- Verify code correctness and security
+### Scripts
+- **camelCase**: `common.ts`, `appStore.ts`
+- **TypeScript**: All `.ts` files, no `.js`
 
-### Improving Efficiency
+### Imports
+```typescript
+// Always use @ alias
+import Component from '@/components/Component.vue'
+import { util } from '@/utils/common'
+import type { Type } from '@/types/enums'
+```
 
-1. **Keyboard Shortcuts**:
-   - `Tab`: Accept suggestion
-   - `Esc`: Reject suggestion
-   - `Alt + ]`: Next suggestion
-   - `Alt + [`: Previous suggestion
+## Build & Scripts
 
-2. **Context Optimization**:
-   - Keep related files open in the editor
-   - Use descriptive variable names
-   - Write clear function signatures
+### Available Commands
+```bash
+npm run dev        # Dev server on http://0.0.0.0:5173
+npm run build      # Type-check + build to dist/
+npm run preview    # Preview production build
+npm run type-check # TypeScript validation
+```
 
-## Project-Specific Applications
+### Build Configuration
+- **Vite Config**: `vite.config.ts`
+  - Plugins: vue, vueDevTools, tailwindcss
+  - Alias: `@` → `src/`
+  - Server host: `0.0.0.0` (LAN accessible)
 
-### Vue 3 Component Development
+- **TypeScript**: `tsconfig.json`, `tsconfig.app.json`
+  - Strict mode enabled
+  - Vue-specific types from vue-tsc
 
-Copilot can help quickly generate:
-- Component template structure
-- Composition API logic
-- Props and Emits definitions
-- Reactive state management
+## Dependencies
 
-### TypeScript Development
+### Core
+- vue (3.5.18)
+- vue-router (4.5.1)
+- pinia (3.0.3)
+- vue-i18n (11.1.11)
 
-- Auto-generate type definitions
-- Interfaces and type guards
-- Generic function implementations
+### UI
+- @headlessui/vue (1.7.23) - Accessible components
+- @heroicons/vue (2.2.0) - Icon library
+- tailwindcss (4.1.12) - Styling
 
-### Style Development
+### Build Tools
+- vite (7.0.6)
+- @vitejs/plugin-vue (6.0.1)
+- vue-tsc (3.0.4) - Vue-aware TypeScript compiler
+- typescript (5.8.0)
 
-- Tailwind CSS class suggestions
-- Responsive design code
-- Animation and transition effects
+## Routes
 
-## Common Scenarios
+| Path | Component | Purpose |
+|------|-----------|---------|
+| `/` | Home.vue | Landing page with features |
+| `/download` | Download.vue | Platform-specific downloads |
+| `/releases` | Releases.vue | Version history & changelogs |
+| `/faq` | Faq.vue | Frequently asked questions |
+| `/terms` | Terms.vue | Terms of Service |
+| `/privacy` | Privacy.vue | Privacy Policy |
 
-### 1. Creating New Components
+## State Management
 
+### appStore (Pinia)
+```typescript
+// Location: src/stores/appStore.ts
+interface AppStore {
+  language: LanguageKind // 'zh-CN' | 'en-US'
+  // Add more state as needed
+}
+```
+
+## External Configuration
+
+### Version Constants (src/config/url.ts)
+```typescript
+export const DESKTOP_VERSION = "0.4.2"
+export const ANDROID_VERSION = "0.1.0"
+```
+
+### Social/External Links
+- GitHub: https://github.com/SelfPhotos/SelfPhotos
+- Discord: Community link
+- YouTube, Bilibili, X: Social media
+- Download URLs: GitHub releases + Tencent CDN
+
+## Development Tips for Copilot
+
+1. **Always add i18n**: When adding user-facing text, add to both `zh-CN.ts` and `en-US.ts`
+2. **Use Tailwind**: Prefer Tailwind classes over custom styles
+3. **Type everything**: Use TypeScript types for props, emits, refs
+4. **Composition API**: Use `<script setup>` pattern consistently
+5. **Responsive**: Include mobile (`sm:`), tablet (`md:`), desktop (`lg:`) variants
+6. **Icons**: Use `@heroicons/vue` for icons (solid/outline variants)
+
+## Common Patterns to Recognize
+
+### Page Layout
 ```vue
-<!-- Type component basic structure, Copilot will provide complete template, script, and style suggestions -->
-<script setup lang="ts">
-// Copilot will suggest appropriate imports and logic based on component name and purpose
-</script>
+<template>
+  <div class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-6 py-12">
+      <!-- Content -->
+    </div>
+  </div>
+</template>
 ```
 
-### 2. API Integration
-
-```typescript
-// Copilot can help generate API calls, error handling, and data transformation code
+### Button Styles
+```html
+<button class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors">
+  {{ $t('message.button.text') }}
+</button>
 ```
 
-### 3. Internationalization Support
-
-```typescript
-// Copilot recognizes the project's i18n structure and suggests correct translation keys
+### Grid Layouts
+```html
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Cards -->
+</div>
 ```
 
-## Important Notes
+## CI/CD Context
 
-1. **Code Quality**: Don't completely rely on Copilot, maintain code review habits
-2. **Security**: Avoid exposing sensitive information in code
-3. **License**: Understand the license implications of Copilot-generated code
-4. **Privacy**: Note that Copilot sends code snippets to servers for analysis
+- **Workflow**: `.github/workflows/build.yml`
+- **Trigger**: Push to `main` branch
+- **Process**: Build → Deploy to `dist` branch → Webhook to production
+- **Production**: https://aikanxiangce.com
+- **Node Version**: 22.13.1 in CI
 
-## Performance Optimization Tips
+## Testing
 
-- Disable unnecessary language support to improve response speed
-- Regularly update the Copilot extension
-- Appropriately limit suggestion scope in large files
+- **No unit tests** currently
+- **Type checking**: Required before build (`npm run type-check`)
+- **Manual testing**: Use dev server with hot reload
 
-## Troubleshooting
+## When Making Changes
 
-### Copilot Not Responding
-
-1. Check network connection
-2. Restart VS Code
-3. Re-login to GitHub account
-
-### Poor Suggestion Quality
-
-1. Provide more context
-2. Use clearer naming
-3. Add descriptive comments
-
-## Related Resources
-
-- [GitHub Copilot Official Documentation](https://docs.github.com/en/copilot)
-- [VS Code Copilot Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-- [Claude AI Usage Guide](./CLAUDE.md)
-- [AI Agents Usage Guide](./AGENTS.md)
+1. Check TypeScript types (`npm run type-check`)
+2. Test both languages (toggle in UI or change `appStore.language`)
+3. Verify responsive design (mobile, tablet, desktop)
+4. Ensure build succeeds (`npm run build`)
+5. Check that translations are complete
