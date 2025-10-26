@@ -267,128 +267,165 @@ export default {
       },
     },
     releases: {
-      "0_4_2": {
-        features: {},
-        optimizations: {
-          1: "UseUTC instead of local time as the primary photo timestamp",
-          2: "Added close icon in the settings panel",
-        },
-        bugfixs: {
-          1: "Fixed an issue where the folder page could not navigate to other pages during import",
-          2: "Fixed a rendering freeze when photo dimensions were abnormal",
-        },
-      },
-      "0_4_1": {
-        features: {},
-        optimizations: {
-          1: "If an external hard drive is temporarily inaccessible (e.g., unplugged), previously scanned photos will not be marked as deleted",
-          2: "After deleting photos to the system recycle bin from any screen, the page will not refresh automatically",
-          3: "Faster startup scanning tasks",
-          4: "The scan path settings page now supports concurrent operations, allowing multiple directories to expand smoothly without lag",
-          5: "Added manual download option on the app update page",
-          6: "Added draggable icons in the folder page pop-up menu",
-          7: "Temporarily hid the Archive feature, which will be reintroduced during the photo organization stage in the future",
-          8: "App name now supports multiple languages",
-        },
-        bugfixs: {
-          1: "Deduplicate paths when saving computer scan locations",
-          2: 'Fixed the issue where the "Folders" page would not auto-refresh',
-          3: "Fixed the issue where deleted files were not properly hidden during scanning",
-        },
-      },
-      "0_4_0": {
-        features: {
-          1: "Support for backing up albums from the “Self Photos” app to the computer, with customizable backup directory, subdirectory rules, and file naming rules",
-          2: "Task Center to display all ongoing tasks in one place",
-          3: "Notification Center to display all notifications",
-        },
-        optimizations: {
-          1: "Fixed performance issue when deleting multiple photos/videos consecutively",
-          2: "Resolved the issue where the app showed scan completed on startup without actually scanning photos",
-          3: 'Fill in "orientation" information when generating thumbnails',
-          4: 'Changed the favorite shortcut key to "F"',
-          5: "If a video thumbnail has not been generated, display “Generating thumbnail”",
-          6: "Automatically exclude the Recycle Bin folder during scanning",
-          7: "Improved error handling when downloading updates",
-        },
-        bugfixs: {
-          1: 'If the photo or video EXIF shooting time is "0", automatically use the file system modified/created time',
-          2: "Fixed bug with arrow key selection and mouse selection",
-        },
-      },
-      "0_3_2": {
-        features: {},
-        optimizations: {
-          1: "Improve the stability of the Windows scanning process",
-        },
-        bugfixs: {},
-      },
-      "0_3_1": {
-        features: {
-          1: "Added a scanning indicator during photo scanning to improve recognition",
-          2: "Service Terms and Privacy Policy links now open based on the user's language setting",
-        },
-        optimizations: {
-          1: "If no EXIF capture time is available, the file's modification time (instead of creation time) is used for sorting",
-          2: "Improved performance when deleting multiple photos in a row",
-          3: "Temporarily disabled GIF thumbnail generation for videos; it will be re-enabled in a future update",
-        },
-        bugfixs: {
-          1: "Fixed terminal pop-up issue during scanning on Windows systems",
-          2: "Fixed issue where HEIC photos from Apple devices could not be previewed on Windows",
-          3: "Fixed issue where changing hidden photo/video size settings didn’t trigger a rescan",
-          4: "Fixed issues with arrow key and mouse selection navigation",
-          5: "Fixed missing thumbnail icons not adapting to the current theme color",
-        },
-      },
-      "0_3_0": {
-        features: {
-          1: 'Brand upgrade to "Self Photos"',
-          2: 'One-click scan for system "Photos" and "Videos" folders on first launch',
-          3: "Real-time scan progress display with auto-refresh for scanned media count",
-          4: 'Enhanced error handling for failed image loading (now shows "missing" placeholder)',
-        },
-        optimizations: {
-          1: "Improved database design for faster response times",
-          2: "Smarter thumbnail generation - now uses shortest side as baseline for better layout adaptation",
-        },
-        bugfixs: {
-          1: "Fixed folder redirection issues in Folder page",
-        },
-      },
-      "0_2_1": {
-        features: {
-          1: {
-            title: "(new) Grid Layout",
-            1: "Neatly organized layout makes it easier to browse your photo collection at a glance",
+      desktop: {
+        "0_4_4": {
+          features: {},
+          optimizations: {
+            1: "Added support for accessing photos and videos on your computer from mobile devices",
+            2: "Added backup support for Live Photos (iOS/Android) to Mac/PC",
+            3: "Improved HDR video compatibility",
+            4: "Improved error handling in communication between app and server",
+            5: "Optimized frontend UI for smoother interactions",
+            6: "Refactored backend architecture for better maintainability",
+            7: "Enhanced database access performance",
+            8: "Fixed lag when deleting photos in the preview interface",
           },
-          2: {
-            title: "More Desktop-Like Interaction",
-            1: "Improved selection visuals for selected photos",
-            2: "Drag to select multiple photos within a region — just like on your desktop",
-          },
-          3: {
-            title: "In-App Auto Updates",
-            1: "Stay up to date effortlessly. The app now upgrades itself automatically",
-          },
-          4: {
-            title: "Auto-Select File When Opened in Finder/Explorer",
-            1: "Right-click and choose “Show in Finder/Explorer” — the file will be automatically highlighted in your system file manager",
+          bugfixs: {
+            1: "Fixed issue where the root directory could not be scanned on Windows",
+            2: "Fixed bug in extracting video capture time",
           },
         },
-        optimizations: {},
-        bugfixs: {},
-      },
-      "0_2_0": {
-        features: {},
-        optimizations: {
-          1: "Significantly optimized overall performance",
-          2: "Improved image preloading, making navigation more fluid and responsive",
+        "0_4_2": {
+          features: {},
+          optimizations: {
+            1: "UseUTC instead of local time as the primary photo timestamp",
+            2: "Added close icon in the settings panel",
+          },
+          bugfixs: {
+            1: "Fixed an issue where the folder page could not navigate to other pages during import",
+            2: "Fixed a rendering freeze when photo dimensions were abnormal",
+          },
         },
-        bugfixs: {
-          1: "Fixed an issue where the selection box was misaligned after exiting preview mode",
-          2: "Fixed a bug where thumbnails were not centered on the preview page",
-          3: "Fixed a problem where no message was shown when no updates were available",
+        "0_4_1": {
+          features: {},
+          optimizations: {
+            1: "If an external hard drive is temporarily inaccessible (e.g., unplugged), previously scanned photos will not be marked as deleted",
+            2: "After deleting photos to the system recycle bin from any screen, the page will not refresh automatically",
+            3: "Faster startup scanning tasks",
+            4: "The scan path settings page now supports concurrent operations, allowing multiple directories to expand smoothly without lag",
+            5: "Added manual download option on the app update page",
+            6: "Added draggable icons in the folder page pop-up menu",
+            7: "Temporarily hid the Archive feature, which will be reintroduced during the photo organization stage in the future",
+            8: "App name now supports multiple languages",
+          },
+          bugfixs: {
+            1: "Deduplicate paths when saving computer scan locations",
+            2: 'Fixed the issue where the "Folders" page would not auto-refresh',
+            3: "Fixed the issue where deleted files were not properly hidden during scanning",
+          },
+        },
+        "0_4_0": {
+          features: {
+            1: "Support for backing up albums from the “Self Photos” app to the computer, with customizable backup directory, subdirectory rules, and file naming rules",
+            2: "Task Center to display all ongoing tasks in one place",
+            3: "Notification Center to display all notifications",
+          },
+          optimizations: {
+            1: "Fixed performance issue when deleting multiple photos/videos consecutively",
+            2: "Resolved the issue where the app showed scan completed on startup without actually scanning photos",
+            3: 'Fill in "orientation" information when generating thumbnails',
+            4: 'Changed the favorite shortcut key to "F"',
+            5: "If a video thumbnail has not been generated, display “Generating thumbnail”",
+            6: "Automatically exclude the Recycle Bin folder during scanning",
+            7: "Improved error handling when downloading updates",
+          },
+          bugfixs: {
+            1: 'If the photo or video EXIF shooting time is "0", automatically use the file system modified/created time',
+            2: "Fixed bug with arrow key selection and mouse selection",
+          },
+        },
+        "0_3_2": {
+          features: {},
+          optimizations: {
+            1: "Improve the stability of the Windows scanning process",
+          },
+          bugfixs: {},
+        },
+        "0_3_1": {
+          features: {
+            1: "Added a scanning indicator during photo scanning to improve recognition",
+            2: "Service Terms and Privacy Policy links now open based on the user's language setting",
+          },
+          optimizations: {
+            1: "If no EXIF capture time is available, the file's modification time (instead of creation time) is used for sorting",
+            2: "Improved performance when deleting multiple photos in a row",
+            3: "Temporarily disabled GIF thumbnail generation for videos; it will be re-enabled in a future update",
+          },
+          bugfixs: {
+            1: "Fixed terminal pop-up issue during scanning on Windows systems",
+            2: "Fixed issue where HEIC photos from Apple devices could not be previewed on Windows",
+            3: "Fixed issue where changing hidden photo/video size settings didn’t trigger a rescan",
+            4: "Fixed issues with arrow key and mouse selection navigation",
+            5: "Fixed missing thumbnail icons not adapting to the current theme color",
+          },
+        },
+        "0_3_0": {
+          features: {
+            1: 'Brand upgrade to "Self Photos"',
+            2: 'One-click scan for system "Photos" and "Videos" folders on first launch',
+            3: "Real-time scan progress display with auto-refresh for scanned media count",
+            4: 'Enhanced error handling for failed image loading (now shows "missing" placeholder)',
+          },
+          optimizations: {
+            1: "Improved database design for faster response times",
+            2: "Smarter thumbnail generation - now uses shortest side as baseline for better layout adaptation",
+          },
+          bugfixs: {
+            1: "Fixed folder redirection issues in Folder page",
+          },
+        },
+        "0_2_1": {
+          features: {
+            1: {
+              title: "(new) Grid Layout",
+              1: "Neatly organized layout makes it easier to browse your photo collection at a glance",
+            },
+            2: {
+              title: "More Desktop-Like Interaction",
+              1: "Improved selection visuals for selected photos",
+              2: "Drag to select multiple photos within a region — just like on your desktop",
+            },
+            3: {
+              title: "In-App Auto Updates",
+              1: "Stay up to date effortlessly. The app now upgrades itself automatically",
+            },
+            4: {
+              title: "Auto-Select File When Opened in Finder/Explorer",
+              1: "Right-click and choose “Show in Finder/Explorer” — the file will be automatically highlighted in your system file manager",
+            },
+          },
+          optimizations: {},
+          bugfixs: {},
+        },
+        "0_2_0": {
+          features: {},
+          optimizations: {
+            1: "Significantly optimized overall performance",
+            2: "Improved image preloading, making navigation more fluid and responsive",
+          },
+          bugfixs: {
+            1: "Fixed an issue where the selection box was misaligned after exiting preview mode",
+            2: "Fixed a bug where thumbnails were not centered on the preview page",
+            3: "Fixed a problem where no message was shown when no updates were available",
+          },
+        },
+      },
+      android: {
+        "1_2_1": {
+          features: {},
+          optimizations: {
+            1: "Viewing computer photos and videos in the app remotely, with full-screen immersive browsing. Added virtual scroll bar and monthly quick navigation",
+            2: "Added support for backing up Motion Photos",
+            3: "Added automatic app update detection",
+            4: "Added time range option for automatic backup (e.g., back up only photos taken after a specific date)",
+            5: "Added support for 8 new languages",
+            6: "Added social media links",
+            7: "Added ICP license number display",
+          },
+          bugfixs: {
+            1: "Improved local network device scanning and added connection log display",
+            2: "Fixed image flickering issue when browsing photos",
+          },
         },
       },
     },
