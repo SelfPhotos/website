@@ -8,6 +8,8 @@ export const BILIBILI_URL = "https://space.bilibili.com/30280506";
 
 export const DESKTOP_VERSION = "0.4.4";
 export const ANDROID_VERSION = "1.2.1";
+export const IOS_VERSION = "1.1.0";
+export const IOS_APP_ID = "6753349000";
 export const getGithubDownloadWindowsUrl = () => {
   return `https://github.com/SelfPhotos/SelfPhotos/releases/download/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_x64.msi`;
 };
@@ -22,4 +24,7 @@ export const getTencentDownloadMacOSUrl = () => {
 };
 export const getDownloadAndroidUrl = () => {
   return `https://aikanxiangce.com/assets/android/releases/${ANDROID_VERSION}/SelfPhotos_${ANDROID_VERSION}.apk`;
+};
+export const getDownloadIOSUrl = () => {
+  return `https://apps.apple.com/app/id${IOS_APP_ID}`;
 };

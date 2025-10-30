@@ -3,6 +3,7 @@ import {
   ANDROID_VERSION,
   DESKTOP_VERSION,
   getDownloadAndroidUrl,
+  getDownloadIOSUrl,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
@@ -35,6 +36,10 @@ const onMacOSDownloadClick = () => {
 };
 const onAndroidDownloadClick = () => {
   let url = getDownloadAndroidUrl();
+  onWindowOpen(url);
+};
+const onIOSDownloadClick = () => {
+  let url = getDownloadIOSUrl();
   onWindowOpen(url);
 };
 </script>
@@ -153,6 +158,40 @@ const onAndroidDownloadClick = () => {
               <button
                 class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl flex items-center justify-center"
                 @click="onAndroidDownloadClick"
+              >
+                <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
+                  $t("message.download.downloadButton")
+                }}
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative border-2 border-blue-500"
+          >
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap"
+              >
+                {{ $t("message.download.latest") }}
+              </span>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-300"
+              >
+                <img src="@/assets/images/logo/ios_white.svg" alt="Android" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
+              <div class="text-sm text-gray-500 mb-6 space-y-1">
+                <div>
+                  {{ $t("message.download.version") }}: v{{ ANDROID_VERSION }}
+                </div>
+                <div>{{ $t("message.download.size") }}: 5.4 MB</div>
+                <div>{{ $t("message.download.iosTip") }}</div>
+              </div>
+              <button
+                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-pointer bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl flex items-center justify-center"
+                @click="onIOSDownloadClick"
               >
                 <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
                   $t("message.download.downloadButton")

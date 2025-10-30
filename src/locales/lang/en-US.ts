@@ -109,6 +109,7 @@ export default {
       windowsTip: "Supports Windows 10 or later versions",
       macosTip: "Supports Apple silicon",
       androidTip: "Supports Android 8.0 or later versions",
+      iosTip: "Supports iOS 15.6 or later.",
     },
     faq: {
       tip: "Here are summarized the most concerned questions of users and detailed answers to help you use Self Photos better",

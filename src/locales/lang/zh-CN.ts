@@ -105,6 +105,7 @@ export default {
       windowsTip: "支持Windows 10或更高版本",
       macosTip: "支持M系列芯片",
       androidTip: "支持Android 8.0或更高版本",
+      iosTip: "支持iOS 15.6或更高版本",
     },
     faq: {
       tip: "这里汇总了用户最关心的问题和详细解答，帮助你更好地使用爱看相册",
