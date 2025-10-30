@@ -8,6 +8,7 @@ import {
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
   getTencentDownloadWindowsUrl,
+  IOS_VERSION,
 } from "@/config/url";
 import { useAppStore } from "@/stores/appStore";
 import { LanguageKind } from "@/types/enums";
@@ -184,7 +185,7 @@ const onIOSDownloadClick = () => {
               <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
               <div class="text-sm text-gray-500 mb-6 space-y-1">
                 <div>
-                  {{ $t("message.download.version") }}: v{{ ANDROID_VERSION }}
+                  {{ $t("message.download.version") }}: v{{ IOS_VERSION }}
                 </div>
                 <div>{{ $t("message.download.size") }}: 5.4 MB</div>
                 <div>{{ $t("message.download.iosTip") }}</div>
@@ -196,28 +197,6 @@ const onIOSDownloadClick = () => {
                 <arrow-down-tray-icon class="mr-2 w-5 h-5" />{{
                   $t("message.download.downloadButton")
                 }}
-              </button>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100"
-          >
-            <div class="text-center">
-              <div
-                class="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gray-100"
-              >
-                <img src="@/assets/images/logo/ios.svg" alt="iOS" />
-              </div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-2">iOS</h3>
-              <div class="text-sm text-gray-500 mb-6 space-y-1">
-                <div>{{ $t("message.download.version") }}: --</div>
-                <div>{{ $t("message.download.size") }}: --</div>
-                <div>--</div>
-              </div>
-              <button
-                class="w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 whitespace-nowrap cursor-not-allowed bg-gray-100 text-gray-700"
-              >
-                {{ $t("message.download.comingSoon") }}
               </button>
             </div>
           </div>
