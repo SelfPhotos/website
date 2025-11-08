@@ -263,6 +263,13 @@ export default {
     },
     releases: {
       desktop: {
+        "0_4_5": {
+          features: {
+            1: "配合APP实现扫描二维码连接电脑端功能",
+          },
+          optimizations: {},
+          bugfixs: {},
+        },
         "0_4_4": {
           features: {},
           optimizations: {
@@ -406,6 +413,17 @@ export default {
         },
       },
       android: {
+        "1_2_2": {
+          features: {},
+          optimizations: {
+            1: "添加扫二维码连接电脑端功能",
+            2: "首页照片列表增加离线缓存",
+            3: "三星动态照片备份支持",
+          },
+          bugfixs: {
+            1: "极端情况下无法读取到相册内容。感谢 `MrGem`",
+          },
+        },
         "1_2_1": {
           features: {},
           optimizations: {

@@ -1,9 +1,9 @@
 {
-  "version_code": 2,
-  "version_name": "1.2.1",
+  "version_code": 4,
+  "version_name": "1.2.2",
   "force_update": false,
-  "url": "https://aikanxiangce.com/assets/android/releases/1.2.1/SelfPhotos_1.2.1.apk",
-  "notes": "",
-  "pub_date": "2025-10-27T00:00:00Z",
-  "size": 5932604
+  "url": "https://aikanxiangce.com/assets/android/releases/1.2.2/SelfPhotos_1.2.2.apk",
+  "notes": "<h2>⚡ Optimization</h2><br><ul><li>Added QR code scanning to connect to the Self Photos desktop software</li><li>Added offline cache for the photo list on the gallery page</li><li>Added support for backing up Samsung Motion Photos</li></ul><br><h2>🐛 Bug Fixes</h2><br><ul><li>Fixed an issue where album content could not be read in rare cases. Thanks to <code>MrGem</code></li></ul>",
+  "pub_date": "2025-11-09T00:00:00Z",
+  "size": 15730091
 }

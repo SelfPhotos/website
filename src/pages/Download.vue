@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import {
+  ANDROID_APP_SIZE,
   ANDROID_VERSION,
+  DESKTOP_MACOS_APP_SIZE,
   DESKTOP_VERSION,
+  DESKTOP_WINDOWS_APP_SIZE,
   getDownloadAndroidUrl,
   getDownloadIOSUrl,
   getGithubDownloadMacOSUrl,
   getGithubDownloadWindowsUrl,
   getTencentDownloadMacOSUrl,
   getTencentDownloadWindowsUrl,
+  IOS_APP_SIZE,
   IOS_VERSION,
 } from "@/config/url";
 import { useAppStore } from "@/stores/appStore";
@@ -70,7 +74,10 @@ const onIOSDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 285 MB</div>
+                <div>
+                  {{ $t("message.download.size") }}:
+                  {{ DESKTOP_WINDOWS_APP_SIZE }}
+                </div>
                 <div>{{ $t("message.download.windowsTip") }}</div>
               </div>
               <button
@@ -97,7 +104,10 @@ const onIOSDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ DESKTOP_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 61.3 MB</div>
+                <div>
+                  {{ $t("message.download.size") }}:
+                  {{ DESKTOP_MACOS_APP_SIZE }}
+                </div>
                 <div>{{ $t("message.download.macosTip") }}</div>
               </div>
               <button
@@ -153,7 +163,9 @@ const onIOSDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ ANDROID_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 5.9 MB</div>
+                <div>
+                  {{ $t("message.download.size") }}: {{ ANDROID_APP_SIZE }}
+                </div>
                 <div>{{ $t("message.download.androidTip") }}</div>
               </div>
               <button
@@ -187,7 +199,7 @@ const onIOSDownloadClick = () => {
                 <div>
                   {{ $t("message.download.version") }}: v{{ IOS_VERSION }}
                 </div>
-                <div>{{ $t("message.download.size") }}: 5.4 MB</div>
+                <div>{{ $t("message.download.size") }}: {{ IOS_APP_SIZE }}</div>
                 <div>{{ $t("message.download.iosTip") }}</div>
               </div>
               <button

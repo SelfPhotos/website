@@ -269,6 +269,13 @@ export default {
     },
     releases: {
       desktop: {
+        "0_4_5": {
+          features: {
+            1: "Enables QR code scanning functionality to connect with Self Photos desktop application",
+          },
+          optimizations: {},
+          bugfixs: {},
+        },
         "0_4_4": {
           features: {},
           optimizations: {
@@ -412,6 +419,17 @@ export default {
         },
       },
       android: {
+        "1_2_2": {
+          features: {},
+          optimizations: {
+            1: "Added QR code scanning to connect to the Self Photos desktop software",
+            2: "Added offline cache for the photo list on the gallery page",
+            3: "Added support for backing up Samsung Motion Photos",
+          },
+          bugfixs: {
+            1: "Fixed an issue where album content could not be read in rare cases. Thanks to `MrGem`",
+          },
+        },
         "1_2_1": {
           features: {},
           optimizations: {
