@@ -143,8 +143,8 @@ export default {
           You can mix and match these modes and adjust your scanning preferences at any time.`,
       },
       7: {
-        q: "Will there be support for backing up mobile photos to the computer in the future?",
-        a: "Yes, we are currently developing mobile features. In the future, you’ll be able to back up photos and videos from your phone to your computer and manage them in one place.",
+        q: "Can I back up mobile photos to my computer?",
+        a: "Absolutely! Download the "Self Photos" app on your phone and pair it with your desktop. You can then back up your photos losslessly to your designated location on PC/Mac, whether it's an internal hard drive or an external drive. The backup feature also supports Live Photo/Motion Photo.",
       },
       8: {
         q: "Is the software free?",
