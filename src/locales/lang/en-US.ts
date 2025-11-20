@@ -419,6 +419,16 @@ export default {
         },
       },
       android: {
+        "1_2_3": {
+          features: {},
+          optimizations: {
+            1: "Accelerated the initial connection speed to desktop app.",
+            2: "Improved the stability of the desktop app connection status.",
+          },
+          bugfixs: {
+            1: "Fixed an issue related to retrieving photo geolocation.",
+          },
+        },
         "1_2_2": {
           features: {},
           optimizations: {

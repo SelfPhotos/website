@@ -413,6 +413,16 @@ export default {
         },
       },
       android: {
+        "1_2_3": {
+          features: {},
+          optimizations: {
+            1: "加速首次连接电脑端的速度",
+            2: "电脑端连接状态的稳定性优化",
+          },
+          bugfixs: {
+            1: "修复获取照片地理位置的bug",
+          },
+        },
         "1_2_2": {
           features: {},
           optimizations: {
