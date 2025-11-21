@@ -109,7 +109,7 @@ export default {
       windowsTip: "Supports Windows 10 or later versions",
       macosTip: "Supports Apple silicon",
       androidTip: "Supports Android 8.0 or later versions",
-      iosTip: "Supports iOS 15.6 or later.",
+      iosTip: "Supports iOS 15.5 or later.",
     },
     faq: {
       tip: "Here are summarized the most concerned questions of users and detailed answers to help you use Self Photos better",
@@ -255,6 +255,10 @@ export default {
       android: {
         label: "Android Application",
         tip: "The Android application version is updated independently and can be downloaded from the app store or the official website",
+      },
+      ios: {
+        label: "iOS Application",
+        tip: "The iOS application version is updated independently and can be downloaded from the App Store.",
       },
 
       feature: "Features",
@@ -455,6 +459,18 @@ export default {
             1: "Improved local network device scanning and added connection log display",
             2: "Fixed image flickering issue when browsing photos",
           },
+        },
+      },
+      ios: {
+        "1_2_0": {
+          features: {},
+          optimizations: {
+            1: "Added QR code scanning to connect to the Self Photos desktop software",
+            2: "Added social media links",
+            3: "Added time range option for automatic backup (e.g., back up only photos taken after a specific date)",
+            4: "Accelerated the initial connection speed to desktop app.",
+          },
+          bugfixs: {},
         },
       },
     },

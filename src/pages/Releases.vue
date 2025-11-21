@@ -65,6 +65,18 @@ const formatDate = (dateStr: string) => {
               {{ $t("message.release.android.label") }}
             </button>
           </Tab>
+          <Tab as="template" v-slot="{ selected }">
+            <button
+              :class="[
+                'px-6 py-3 rounded-full font-medium transition-all cursor-pointer whitespace-nowrap',
+                selected
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900',
+              ]"
+            >
+              {{ $t("message.release.ios.label") }}
+            </button>
+          </Tab>
         </div>
       </TabList>
 
@@ -1461,6 +1473,87 @@ const formatDate = (dateStr: string) => {
                       />
                       <span class="text-gray-700">
                         {{ $t("message.releases.android.1_2_1.bugfixs.2") }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div
+            class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg"
+          >
+            <div class="flex items-center">
+              <information-circle-icon class="text-blue-600 w-6 h-6" />
+              <div class="ml-3">
+                <p class="text-sm text-blue-800">
+                  {{ $t("message.release.ios.tip") }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div
+              class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="p-8">
+                <div
+                  class="flex flex-col md:flex-row md:items-center md:justify-between mb-6"
+                >
+                  <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                      v1.2.0
+                    </h3>
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-600"
+                    >
+                      <span class="flex items-center">
+                        <calendar-icon class="mr-1 w-4 h-4" />
+                        {{ formatDate("2025-11-21") }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <h4
+                    class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                  >
+                    <sparkles-icon class="text-purple-500 mr-2 w-5 h-5" />
+                    {{ $t("message.release.optimization") }}
+                  </h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.ios.1_2_0.optimizations.1") }}
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.ios.1_2_0.optimizations.2") }}
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.ios.1_2_0.optimizations.3") }}
+                      </span>
+                    </li>
+                    <li class="flex items-start">
+                      <arrow-trending-up-icon
+                        class="text-orange-500 mt-1 mr-3 flex-shrink-0 w-4 h-4"
+                      />
+                      <span class="text-gray-700">
+                        {{ $t("message.releases.ios.1_2_0.optimizations.4") }}
                       </span>
                     </li>
                   </ul>

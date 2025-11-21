@@ -105,7 +105,7 @@ export default {
       windowsTip: "支持Windows 10或更高版本",
       macosTip: "支持M系列芯片",
       androidTip: "支持Android 8.0或更高版本",
-      iosTip: "支持iOS 15.6或更高版本",
+      iosTip: "支持iOS 15.5或更高版本",
     },
     faq: {
       tip: "这里汇总了用户最关心的问题和详细解答，帮助你更好地使用爱看相册",
@@ -250,6 +250,10 @@ export default {
       android: {
         label: "Android 应用",
         tip: "Android 版本独立更新，可通过应用商店或官网下载",
+      },
+      ios: {
+        label: "iOS 应用",
+        tip: "iOS 版本独立更新，可前往App Store下载",
       },
 
       feature: "新增功能",
@@ -449,6 +453,18 @@ export default {
             1: "扫描局域网内桌面端设备加强，页面科显示连接日志",
             2: "解决浏览图片闪烁的问题",
           },
+        },
+      },
+      ios: {
+        "1_2_0": {
+          features: {},
+          optimizations: {
+            1: "添加扫二维码连接电脑端功能",
+            2: "添加社交网络信息",
+            3: "自动备份新增对时间范围的选择，比如只备份某天之后的照片",
+            4: "加速首次连接电脑端的速度",
+          },
+          bugfixs: {},
         },
       },
     },
