@@ -1,0 +1,9 @@
+{
+  "version_code": 4,
+  "version_name": "1.2.3",
+  "force_update": false,
+  "url": "https://aikanxiangce.com/assets/android/releases/1.2.3/SelfPhotos_1.2.3.apk",
+  "notes": "<h2>⚡ Optimization</h2><br><ul><li>Accelerated the initial connection speed to desktop app.</li><li>Improved the stability of the desktop app connection status.</li></ul><br><h2>🐛 Bug Fixes</h2><br><ul><li>Fixed an issue related to retrieving photo geolocation.</li></ul>",
+  "pub_date": "2025-11-21T00:00:00Z",
+  "size": 15730119
+}
