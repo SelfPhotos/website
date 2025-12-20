@@ -1,0 +1,60 @@
+# name: Build on Push
+
+# on:
+#   push:
+#     branches: [main] # 例如：main 或 dev
+
+# # 添加权限配置
+# permissions:
+#   contents: write # 允许写入仓库内容
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 22.13.1 # 与你项目兼容的 Node.js 版本
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build project
+#         run: npm run build
+
+#       - name: Push dist to dist branch
+#         run: |
+#           # 配置Git
+#           git config --global user.name "chocolate-11"
+#           git config --global user.email "821655475@qq.com"
+
+#           # 保存dist目录到临时位置
+#           mkdir -p /tmp/dist
+#           cp -r ./dist/* /tmp/dist/
+
+#           # 切换到dist分支或创建它
+#           git checkout --orphan dist || git checkout dist
+#           git reset --hard
+
+#           rm -rf *
+
+#           # 复制dist内容回来
+#           cp -r /tmp/dist/* ./
+
+#           rm -rf node_modules/ 2>/dev/null || true
+
+#           # 提交并推送
+#           git add -A
+#           git commit -m "${{ github.event.head_commit.message }}"
+#           git push origin dist --force
+
+#       - name: Call server webhook
+#         run: |
+#           curl -X POST https://aikanxiangce.com/webhook \
+#             -H "Content-Type: application/json" \
+#             -d '{"ref": "refs/heads/dist"}'
