@@ -27,8 +27,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          # username: ${{ secrets.TENCENT_CLOUD_USERNAME }}
-          # password: ${{ secrets.TENCENT_CLOUD_PASSWORD }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -51,15 +51,13 @@ jobs:
       - name: Deploy to Remote Server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.REMOTE_SSH_KEY }}
+          host: ${{ secrets.STATIC_SERVER_HOST }}
+          username: ${{ secrets.STATIC_SERVER_USER }}
+          password: ${{ secrets.STATIC_SERVER_PASSWORD }}
           script: |
-            # docker login ${{ env.REGISTRY }} -u ${{ secrets.TENCENT_CLOUD_USERNAME }} -p ${{ secrets.TENCENT_CLOUD_PASSWORD }}
-            docker login ${{ env.REGISTRY }}
+            docker login ${{ env.REGISTRY }} -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
-            docker stop aikanxiangce_website || true
-            docker rm aikanxiangce_website || true
+            docker rm -f aikanxiangce_website || true
             docker run -d \
               --name aikanxiangce_website \
               --restart always \
