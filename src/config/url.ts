@@ -21,10 +21,10 @@ export const getGithubDownloadMacOSUrl = () => {
   return `https://github.com/SelfPhotos/SelfPhotos/releases/download/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_aarch64.dmg`;
 };
 export const getTencentDownloadWindowsUrl = () => {
-  return `https://selfphotos-1253926100.cos.ap-guangzhou.myqcloud.com/selfphotos/releases/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_x64.msi`;
+  return `https://aikanxiangce.com/assets/selfphotos/releases/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_x64.msi`;
 };
 export const getTencentDownloadMacOSUrl = () => {
-  return `https://selfphotos-1253926100.cos.ap-guangzhou.myqcloud.com/selfphotos/releases/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_aarch64.dmg`;
+  return `https://aikanxiangce.com/assets/selfphotos/releases/${DESKTOP_VERSION}/SelfPhotos_${DESKTOP_VERSION}_aarch64.dmg`;
 };
 export const getDownloadAndroidUrl = () => {
   return `https://aikanxiangce.com/assets/android/releases/${ANDROID_VERSION}/SelfPhotos_${ANDROID_VERSION}.apk`;
